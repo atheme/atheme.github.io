@@ -82,16 +82,22 @@
                                 <a href="#invite">Invite</a>
                             </li>
                             <li>
-                                <a href="#fdrop">FDrop</a>
+                                <a href="#listchans">Listchans</a>
                             </li>
                             <li>
-                                <a href="#fflags">FFlags</a>
+                                <a href="#fdrop">Fdrop</a>
+                            </li>
+                            <li>
+                                <a href="#fflags">Fflags</a>
                             </li>
                             <li>
                                 <a href="#list">List</a>
                             </li>
                             <li>
-                                <a href="#listchans">Listchans</a>
+                                <a href="#regnolimit">Regnolimit</a>
+                            </li>
+                            <li>
+                                <a href="#acsnolimit">Acsnolimit</a>
                             </li>
                         </ul>
                     </div>
@@ -202,6 +208,24 @@
                     <p>Shows all groups matching a specified pattern.</p>
                     <p>Syntax: <pre>LIST &lt;search pattern&gt;</pre></p>
                     <p>Example: <pre>LIST !atheme*</pre></p>
+                </div>
+                 <div class="span4">
+                    <h2>
+                        <a name="regnolimit">REGNOLIMIT</a>
+                        <span class="label label-info">Oper Only</span>
+                    </h2>
+                    <p>Allows a group to maintain an unlimited number of channel registrations.</p>
+                    <p>Syntax: <pre>REGNOLIMIT &lt;group&gt; &lt;ON/OFF&gt;</pre></p>
+                    <p>Example: <pre>REGNOLIMIT !atheme-developers ON</pre></p>
+                </div>
+                <div class="span4">
+                    <h2>
+                        <a name="acsnolimit">ACSNOLIMIT</a>
+                        <span class="label label-info">Oper Only</span>
+                    </h2>
+                    <p>Allows a group to have an unlimited number of access list entries.</p>
+                    <p>Syntax: <pre>ACSNOLIMIT &lt;group&gt; &lt;ON/OFF&gt;</pre></p>
+                    <p>Example: <pre>ACSNOLIMIT !atheme-developers ON</pre></p>
                 </div>
             </div>
             <h3 class="pagination-centered"> For more information (or help) with GroupServ, /msg GroupServ HELP on an Atheme instance.</h3>
