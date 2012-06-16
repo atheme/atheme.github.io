@@ -78,6 +78,21 @@
                             <li>
                                 <a href="#set">Set</a>
                             </li>
+                            <li>
+                                <a href="#invite">Invite</a>
+                            </li>
+                            <li>
+                                <a href="#fdrop">FDrop</a>
+                            </li>
+                            <li>
+                                <a href="#fflags">FFlags</a>
+                            </li>
+                            <li>
+                                <a href="#list">List</a>
+                            </li>
+                            <li>
+                                <a href="#listchans">Listchans</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -144,6 +159,50 @@
                     <p>Sets various options on a group.</p>
                     <p>Syntax: <pre>SET &lt;group&gt; &lt;key&gt; [value]</pre></p>
                     <p>Example: <pre>SET !atheme-developers CHANNEL #atheme</pre></p>
+                </div>
+                <div class="span4">
+                    <h2>
+                        <a name="invite">INVITE</a>
+                    </h2>
+                    <p>Invites a user to a closed group.</p>
+                    <p>Syntax: <pre>INVITE &lt;group&gt; &lt;user&gt;</pre></p>
+                    <p>Example: <pre>INVITE !atheme-developers alyx</pre></p>
+                </div>
+                <div class="span4">
+                    <h2>
+                        <a name="fdrop">FDROP</a>
+                        <span class="label label-info">Oper Only</span>
+                    </h2>
+                    <p>Forcefully drops a group registration.</p>
+                    <p>Syntax: <pre>FDROP &lt;group&gt;</pre></p>
+                    <p>Example: <pre>FDROP !atheme-developers</pre></p>
+                </div>
+                <div class="span4">
+                    <h2>
+                        <a name="fflags">FFLAGS</a>
+                        <span class="label label-info">Oper Only</span>
+                    </h2>
+                    <p>Forcefully sets flags on a user in a group.</p>
+                    <p>Syntax: <pre>FFLAGS &lt;group&gt; &lt;account&gt; &lt;flags&gt;</pre></p>
+                    <p>Example: <pre>FFLAGS !atheme-developers nenolod +*</pre></p>
+                </div>
+                <div class="span4">
+                    <h2>
+                        <a name="list">LIST</a>
+                        <span class="label label-info">Oper Only</span>
+                    </h2>
+                    <p>Shows all groups matching a specified pattern.</p>
+                    <p>Syntax: <pre>LIST &lt;search pattern&gt;</pre></p>
+                    <p>Example: <pre>LIST !atheme*</pre></p>
+                </div>
+                <div class="span4">
+                    <h2>
+                        <a name="listchans">LISTCHANS</a>
+                        <span class="label label-info">Oper Only</span>
+                    </h2>
+                    <p>Shows all channels a group has access to.</p>
+                    <p>Syntax: <pre>LISTCHANS &lt;group&gt;</pre></p>
+                    <p>Example: <pre>LISTCHANS !atheme-developers</pre></p>
                 </div>
             </div>
             <h3 class="pagination-centered"> For more information (or help) with GroupServ, /msg GroupServ HELP on an Atheme instance.</h3>
