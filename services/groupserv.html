@@ -94,58 +94,66 @@
                         <a name="register">REGISTER</a>
                     </h2>
                     <p>Registers a group with GroupServ.</p>
-                    <p>Syntax: REGISTER !atheme-developers</p>
+                    <p>Syntax: <pre>REGISTER <group></pre></p>
+                    <p>Example: <pre>REGISTER !atheme-developers</pre></p>
                 </div>
                 <div class="span4">
                     <h2>
                         <a name="drop">DROP</a>
                     </h2>
                     <p>Drops a group registration.</p>
-                    <p>Syntax: DROP !atheme-developers</p>
+                    <p>Syntax: <pre>DROP <group></pre></p>
+                    <p>Example: <pre>DROP !atheme-developers</pre></p>
                 </div>
                 <div class="span4">
                     <h2>
                         <a name="info">INFO</a>
                     </h2>
                     <p>Displays information about a registered group.</p>
-                    <p>Syntax: INFO !atheme-developers</p>
+                    <p>Syntax: <pre>INFO <group></pre></p>
+                    <p>Example: <pre>INFO !atheme-developers</pre></p>
                 </div>
                 <div class="span4">
                     <h2>
                         <a name="join">JOIN</a>
                     </h2>
                     <p>Joins an open group.</p>
-                    <p>Syntax: JOIN !atheme-developers</p>
+                    <p>Syntax: <pre>JOIN <group></pre></p>
+                    <p>Example: <pre>JOIN !atheme-developers</pre></p>
                 </div>
                 <div class="span4">
                     <h2>
                         <a name="help">HELP</a>
                     </h2>
                     <p>Displays contextual help information.</p>
-                    <p>Syntax: HELP</p>
+                    <p>Syntax: <pre>HELP [command]</pre></p>
+                    <p>Example: <pre>HELP FLAGS</pre></p>
                 </div>
                 <div class="span4">
                     <h2>
                         <a name="flags">FLAGS</a>
                     </h2>
                     <p>Sets flags on a user in a group.</p>
-                    <p>Syntax: FLAGS !atheme-developers nenolod +*</p>
+                    <p>Syntax: <pre>FLAGS <group> <account> <flags></pre></p>
+                    <p>Example: <pre>FLAGS !atheme-developers nenolod +*</pre></p>
                 </div>
                 <div class="span4">
                     <h2>
                         <a name="set">SET</a>
                     </h2>
                     <p>Sets various options on a group.</p>
-                    <p>Syntax: SET !atheme-developers CHANNEL #atheme</p>
+                    <p>Syntax: <pre>SET <group> <key> [value]</pre></p>
+                    <p>Example: <pre>SET !atheme-developers CHANNEL #atheme</pre></p>
                 </div>
             </div>
+            <h3 class="pagination-centered"> For more information (or help) with GroupServ, /msg GroupServ HELP on an Atheme instance.</h3>
             <hr>
             <footer>
                 <p>&copy; Atheme.org 2012</p>
             </footer>
         </div>
         <script src="../js/jquery.js"></script>
-        <script src="../js/bootstrap.js">
+        <script src="../js/bootstrap.min.js">
             
         </script>
         </body>
