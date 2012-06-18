@@ -38,8 +38,7 @@
                 <h1>Iris</h1>
                 <h2>is an AJAX IRC client. It is a drop-in replacement for qwebirc,
                     and is designed to integrate with <a href="atheme.html">the Atheme IRC platform</a>.</h2>
-                <!--<button class="btn btn-large btn-info" data->Try out Iris</button>-->
-                <a id="demo" class="btn btn-large btn-info">Try out Iris</a>
+                <a class="btn btn-large btn-info" href="http://chat.thinstack.net/?nick=&amp;channels=&amp;fg_color=333&amp;fg_sec_color=333&amp;bg_color=#fcfff5">Try out Iris</a>
             </div>
             <div class="row">
                 <div class="span4">
@@ -62,17 +61,6 @@
                 </div>
             </div>
 
-            <div id="demobox" class="modal hide">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">x</button>
-                    <h3>Iris Demo</h3>
-                </div>
-                <div class="modal-body">
-                    <iframe src="http://chat.thinstack.net/?nick=&amp;channels=&amp;fg_color=fff&amp;fg_sec_color=fff&amp;bg_color=111" width="647" height="400"></iframe>
-                </div>
-            </div>
-
-
             <hr>
             <footer>
                 <p>&copy; Atheme.org 2012</p>
@@ -80,18 +68,6 @@
         </div>
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script>
-            $("a#demo").click(function(){
-                $("#demobox").modal({
-                    background: static,
-                    keyboard: true,
-                    show: true
-                });
-
-                $("#demobox").modal('show');
-            });
-            
-        </script>
     </body>
 </html>
 
