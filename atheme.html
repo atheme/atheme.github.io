@@ -108,12 +108,40 @@
                 </div>
 
             </div>
+            <div class="modal hide alert alert-error" id="winalert">
+                <div class="modal-header">
+                    <h3>Atheme on Windows</h3>
+                </div>
+
+                <div class="modal-body">
+                    <p>Windows builds are experimental and unsupported. <strong>Use at your own risk!</strong></p>
+                    <p>These files must be extracted to C:\Atheme. If you want to install Atheme elsewhere,
+                        <a href="https://github.com/atheme/atheme/blob/master/doc/WINDOWS">build Atheme from
+                            source.</a></p>
+                </div>
+                <div class="modal-footer">
+                    <a href="downloads/atheme-services-7.0.0.zip" class="btn btn-info">Download</a>
+                    <a href="#" class="btn" data-dismiss="modal">Go Back</a>
+                </div>
+            </div>
+
             <hr>
             <footer>
                 <p>&copy; Atheme.org 2012</p>
             </footer>
         </div>
         <script src="js/jquery.js"></script>
-        <script src="js/bootstrap.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script>
+            $("#winalert").modal({
+                backdrop: true,
+                keyboard: true,
+                show: false
+            });
+
+            $("#windows").click(function(){
+                $("#winalert").modal('show');
+            });
+        </script>
     </body>
 </html>
