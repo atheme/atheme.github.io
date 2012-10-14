@@ -37,6 +37,8 @@
                 <div class="span3">
                     <div class="well sidebar-nav">
                         <ul class="nav nav-list">
+			    <li class="nav-header">Atheme 8 (Development)</li>
+			    <li class="current"><a href="downloads/atheme-services-7.1.0-alpha1.tar.bz2">7.1.0-alpha1 (Current!)</a></li>
                             <li class="nav-header">Atheme 7 (Stable Release)</li>
                             <li class="current"><a href="downloads/atheme-services-7.0.5.tar.bz2">7.0.5 (Current!)</a></li>
                             <li><a href="downloads/atheme-services-7.0.4.tar.bz2">7.0.4</a></li>
@@ -58,6 +60,7 @@
                             <li><a href="downloads/atheme-services-6.0.1.tar.bz2">6.0.1</a></li>
                             <li><a href="downloads/atheme-services-6.0.0.tar.bz2">6.0.0</a></li>
                             <li class="nav-header">Atheme on Windows</li>
+                            <li class="current" id="windows-beta"><a>7.1.0-alpha1</a></li>
                             <li class="current" id="windows"><a>7.0.5</a></li>
                         </ul>
                     </div>
@@ -126,6 +129,22 @@
                     <a href="#" class="btn" data-dismiss="modal">Go Back</a>
                 </div>
             </div>
+            <div class="modal hide alert alert-error" id="winalert-beta">
+                <div class="modal-header">
+                    <h3>Atheme on Windows</h3>
+                </div>
+
+                <div class="modal-body">
+                    <p>Windows builds are experimental and unsupported. <strong>Use at your own risk!</strong></p>
+                    <p>These files must be extracted to C:\Atheme. If you want to install Atheme elsewhere,
+                        <a href="https://github.com/atheme/atheme/blob/master/doc/WINDOWS">build Atheme from
+                            source.</a></p>
+                </div>
+                <div class="modal-footer">
+                    <a href="downloads/atheme-services-7.1.0-alpha1.zip" class="btn btn-info">Download</a>
+                    <a href="#" class="btn" data-dismiss="modal">Go Back</a>
+                </div>
+            </div>
 
             <hr>
             <footer>
@@ -143,6 +162,16 @@
 
             $("#windows").click(function(){
                 $("#winalert").modal('show');
+            });
+
+            $("#winalert-beta").modal({
+                backdrop: true,
+                keyboard: true,
+                show: false
+            });
+
+            $("#windows-beta").click(function(){
+                $("#winalert-beta").modal('show');
             });
         </script>
     </body>
