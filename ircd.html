@@ -1,82 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Atheme-compatible IRCds</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Atheme IRC Services">
-        <meta name="author" content="Alyx Wolcott">
+  <head>
+    <meta charset="utf-8">
+    <title>Atheme IRC Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Atheme IRC Services">
+    <meta name="author" content="Alyx Wolcott">
+    <meta name="author" content="Andrew Northall">
 
-        <link href="css/style.css" rel="stylesheet">
-        <!--[if lt IE 9]>
-        <script src="js/html5.js"></script>
-        <![endif]-->
-    </head>
-    <body>
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="brand" href="index.html">Atheme</a>
-                    <div class="nav-collapse">
-                        <ul class="nav">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="atheme.html">Atheme</a></li>
-                            <li><a href="iris.html">Iris</a></li>
-                            <li><a href="web.html">Atheme-Web</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="https://github.com/atheme/atheme">GitHub</a></li>
-                            <li><a href="http://webchat.staticbox.net/?channels=atheme&amp;prompt=1">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/atheme-style.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Atheme.net</a>
         </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://atheme.org/"><span class="fa fw-fw fa-external-link-square"></span> Atheme.org</a></li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li><a href="index.html"><span class="fa fa-fw fa-home"></span> Home</a></li>
+            <li><a href="atheme.html"><span class="fa fa-fw fa-group"></span> Atheme</a></li>
+            <li><a href="iris.html"><span class="fa fa-fw fa-terminal"></span> Iris</a></li>
+            <li><a href="web.html"><span class="fa fa-fw fa-globe"></span> Atheme-Web</a></li>
+            <li><a href="faq.html"><span class="fa fw-fw fa-question"></span> FAQ</a></li>
+            <li><a href="https://github.com/atheme"><span class="fa fw-fw fa-github"></span> GitHub</a></li>
+            <li><a href="contact.html"><span class="fa fw-fw fa-envelope"></span> Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-        <div class="container">
-            <div class="hero-unit pagination-centered">
-                <h1>Supported IRCds</h1>
-                <h2>Atheme is capable of linking to all of the below IRC daemons. For best results, please use an IRCd with full support for Atheme's features.</h2>
-            </div>
-            <div class="row">
-                <div class="span4">
-                    <h1><a href="http://www.stack.nl/~jilles/irc/#charybdis">Charybdis</a></h1>
-                    <p>Charybdis is an IRC daemon built to provide stability, whilst supporting modern features and staying lightweight. 
-                        Charybdis is the <a href="http://ircv3.atheme.org/">IRCv3</a> reference implementation, and thus is the first to get many new features.</p>
-                </div>
-                <div class="span4">
-                    <h1><a href="http://shadowircd.net/">ShadowIRCd</a></h1>
-                    <p>ShadowIRCd is an IRC daemon package. It is a modern reboot of the old ShadowIRCd project and is now based on Charybdis IRCd. 
-                        ShadowIRCd mainly adds many new features on top of Charybdis.</p>
-				</div>
-				<div class="span4">
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Supported IRCds</h1>
+        <p class="lead">Atheme is capable of linking to all of the below IRC daemons. For best results, please use an IRCd with full support for Atheme's features.</p>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h1><a href="http://www.stack.nl/~jilles/irc/#charybdis">Charybdis</a></h1>
+          <p>Charybdis is an IRC daemon built to provide stability, whilst supporting modern features and staying lightweight. 
+          Charybdis is the <a href="http://ircv3.atheme.org/">IRCv3</a> reference implementation, and therefore is the first to get many new features.
+          With good documentation and ease of configuration, we would encourage anyone who is unsure of their IRCd choice to use Charybdis.</p>
+        </div>
+        <div class="col-md-6">
 					<h1><a href="http://unrealircd.com">UnrealIRCd</a></h1>
 					<p>UnrealIRCd is an advanced IRC daemon supporting numerous commonly used features, such as channel owner/admin modes, SSL, and 
 					vhosting, and running on most major platforms, such as including Linux, BSD, OS X, and Windows NT4 and up. UnrealIRCd has been
-					time-tested for stability, security and features.</p>
-					<span class="label label-success">Best supported by 3.2.10+</span>
+					time-tested for stability, security and features. For the best Atheme integration, please ensure you use version 3.2.10+.</p>          
 				</div>
-            </div>
-            <hr>
-            <h1>Limited Legacy Support for:</h1>
-            <ul>
-                <li>Asuka</li>
-                <li>Bahamut</li>
-                <li>ircd-hybrid</li>
-                <li>IRCNet IRCd</li>
-                <li>Nefarious</li>
-                <li>ngircd</li>
-                <li>ircd-ratbox</li>
-                <li>ircu</li>
-                <li>InspIRCd</li>
-            </ul>
-            <hr>
-            <h3>If you are an IRCd developer and your IRCd is IRCv3-compliant, or you would like help in making it compliant, feel free to <a href="http://webchat.staticbox.net/?channels=atheme&amp;prompt=1">contact us</a>.</h3>
-            <hr>
-            <footer>
-                <p>&copy; Atheme.org 2012, 2013, 2014</p>
-            </footer>
+      </div>
+      <hr />
+      <p class="lead" style="text-align: center;">Atheme also includes limited legacy support for a number of IRCds:</p>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-2">
+          <ul class="list-group ircd-list">
+            <li class="list-group-item"><span class="fa fa-check fa-fw"></span> Asuka</li>
+            <li class="list-group-item"><span class="fa fa-check fa-fw"></span> Bahamut</li>
+            <li class="list-group-item"><span class="fa fa-check fa-fw"></span> ircd-hybrid</li>
+          </ul>
         </div>
-        <script src="js/jquery.js"></script>
-        <script src="js/bootstrap.js"></script>
-    </body>
+        <div class="col-md-2">
+          <ul class="list-group ircd-list">
+            <li class="list-group-item"><span class="fa fa-check fa-fw"></span> InspIRCd</li>
+            <li class="list-group-item"><span class="fa fa-check fa-fw"></span> ngircd</li>
+            <li class="list-group-item"><span class="fa fa-check fa-fw"></span> ircu</li>
+          </ul>
+        </div>
+        <div class="col-md-2">
+          <ul class="list-group ircd-list">
+            <li class="list-group-item"><span class="fa fa-check fa-fw"></span> Nefarious</li>
+            <li class="list-group-item"><span class="fa fa-check fa-fw"></span> ircd-ratbox</li>
+            <li class="list-group-item"><span class="fa fa-check fa-fw"></span> IRCNet IRCd</li>
+          </ul>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+      <hr />
+      <p class="lead" style="text-align: center;">If you are an IRCd developer and your IRCd is IRCv3-compliant, or you would like help in making it compliant, feel free to <a href="contact.html">contact us</a> and we will
+        be sure to add details of your product on this page.</p>
+      <hr />
+      <footer>
+        <p>&copy; <a href="http://atheme.org/" style="color:black;">Atheme.org</a> 2012-2014</p>
+      </footer>
+    </div>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
 </html>

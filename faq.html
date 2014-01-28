@@ -1,82 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Frequently Asked Questions</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Atheme IRC Services">
-        <meta name="author" content="Alyx Wolcott">
+  <head>
+    <meta charset="utf-8">
+    <title>Atheme IRC Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Atheme IRC Services">
+    <meta name="author" content="Alyx Wolcott">
+    <meta name="author" content="Andrew Northall">
 
-        <link href="css/style.css" rel="stylesheet">
-        <!--[if lt IE 9]>
-        <script src="js/html5.js"></script>
-        <![endif]-->
-    </head>
-    <body>
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="brand" href="index.html">Atheme</a>
-                    <div class="nav-collapse">
-                        <ul class="nav">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="atheme.html">Atheme</a></li>
-                            <li><a href="iris.html">Iris</a></li>
-                            <li><a href="web.html">Atheme-Web</a></li>
-                            <li class="active"><a href="faq.html">FAQ</a></li>
-                            <li><a href="https://github.com/atheme">GitHub</a></li>
-                            <li><a href="http://webchat.staticbox.net/?channels=atheme&amp;prompt=1">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/atheme-style.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Atheme.net</a>
         </div>
-        <div class="container">
-            <div class="hero-unit">
-                <h1>Frequently Asked Questions</h1>
-                <h2>About the Atheme IRC Platform</h2>
-            </div>
-            <div class="row commands">
-                <div class="span4">
-                    <h1><a name="developers">Who develops Atheme?</a></h1>
-                    <p>Atheme is developed by <a href="http://atheme.org">atheme.org</a>, an open-source development collective.
-                        Anyone can participate in the Atheme development process through <a href="https://github.com/atheme/atheme">GitHub</a>.
-                        Contributors with an acceptable skillset and broad vision for the project are given commit access.</p>
-                </div>
-                <div class="span4">
-                    <h1><a name="origins">Where did Atheme come from?</a></h1>
-                    <p>Atheme was originally built on top of <a href="https://github.com/rakaur/shrike">Shrike</a>, a legacy minimalistic services package.
-                        The developers of Atheme decided that Shrike was a good basis to build a more full-featured services package from, 
-                        based on their previous experience of contributing to Shrike. Little of the original code from Shrike remains, 
-                        however many design concepts do.</p>
-                </div>
-                <div class="span4">
-                    <h1><a name="code">Where can I get the latest code?</a></h1>
-                    <p>The most up-to-date code from Atheme, as well as our other projects, can be found on <a href="https://github.com/atheme">GitHub.</a>.
-                        Atheme can be cloned from <a href="git://github.com/atheme/atheme.git"><code>git://github.com/atheme/atheme.git</code></a>, 
-                        atheme-web from <a href="git://github.com/atheme/atheme-web.git"><code>git://github.com/atheme/atheme-web.git</code></a>,
-                        and Iris from <a href="git://github.com/atheme/iris.git"><code>git://github.com/atheme/iris.git</code></a>.</p>
-                </div>
-            </div>
-            <div class="row commands">
-                <div class="span4">
-                    <h1><a name="gauntlet">How scalable is Atheme?</a></h1>
-                    <p>Atheme is extremely scalable, being used on IRC's current largest network, <a href="http://freenode.net">freenode</a>.
-                        The scalability of Atheme, as well as other popular IRC services packages, was put to the test in <a href="http://tortois.es/~nenolod/gauntlet/">
-                            the 2010 IRC Services Scalability Shootout</a>.</p>
-                </div>
-                <div class="span4">
-                    <h1><a name="package">Can I package Atheme for a Linux distro?</a></h1>
-                    <p>Feel free, but please package only the <a href="downloads/atheme-services-6.0.11.tar.bz2">long term support release</a>.</p>
-                </div>
-            </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://atheme.org/"><span class="fa fw-fw fa-external-link-square"></span> Atheme.org</a></li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li><a href="index.html"><span class="fa fa-fw fa-home"></span> Home</a></li>
+            <li><a href="atheme.html"><span class="fa fa-fw fa-group"></span> Atheme</a></li>
+            <li><a href="iris.html"><span class="fa fa-fw fa-terminal"></span> Iris</a></li>
+            <li><a href="web.html"><span class="fa fa-fw fa-globe"></span> Atheme-Web</a></li>
+            <li class="active"><a href="faq.html"><span class="fa fw-fw fa-question"></span> FAQ</a></li>
+            <li><a href="https://github.com/atheme"><span class="fa fw-fw fa-github"></span> GitHub</a></li>
+            <li><a href="contact.html"><span class="fa fw-fw fa-envelope"></span> Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-            <hr>
-            <footer>
-                <p>&copy; Atheme.org 2012, 2013, 2014</p>
-            </footer>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Frequently Asked Questions</h1>
+        <p class="lead">About the Atheme IRC Platform</p>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Who develops Atheme?</h2>
+          <p>Atheme is developed by <a href="http://atheme.org">atheme.org</a>, an open-source development collective.
+            Anyone can participate in the Atheme development process through <a href="https://github.com/atheme/atheme">GitHub</a>.
+            Contributors with an acceptable skillset and broad vision for the project are given commit access.</p>
+          <h2>How scalable is Atheme?</h2>
+          <p>Atheme is extremely scalable, being used on IRC's current largest network, <a href="http://freenode.net">freenode</a>.
+            The scalability of Atheme, as well as other popular IRC services packages, was put to the test in <a href="http://tortois.es/~nenolod/gauntlet/">
+              the 2010 IRC Services Scalability Shootout</a>.</p>
         </div>
-        <script src="js/jquery.js"></script>
-        <script src="js/bootstrap.js"></script>
-    </body>
+        <div class="col-md-6">
+          <h2>Where did Atheme come from?</h2>
+          <p>Atheme was originally built on top of <a href="https://github.com/rakaur/shrike">Shrike</a>, a legacy minimalistic services package.
+            The developers of Atheme decided that Shrike was a good basis to build a more full-featured services package from, 
+            based on their previous experience of contributing to Shrike. Little of the original code from Shrike remains, 
+            however many design concepts do.</p>
+          <h2>Can I package Atheme for a Linux distro?</h2>
+          <p>Feel free, but please package only the <a href="downloads/atheme-services-6.0.11.tar.bz2">long term support release</a>.</p>
+        </div>
+      </div>
+
+      <hr>
+      <footer>
+        <p>&copy; <a href="http://atheme.org/" style="color:black;">Atheme.org</a> 2012-2014</p>
+      </footer>
+    </div>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
 </html>
