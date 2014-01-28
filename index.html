@@ -1,72 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Atheme IRC Platform</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Atheme IRC Services">
-        <meta name="author" content="Alyx Wolcott">
+  <head>
+    <meta charset="utf-8">
+    <title>Atheme IRC Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Atheme IRC Services">
+    <meta name="author" content="Alyx Wolcott">
+    <meta name="author" content="Andrew Northall">
 
-        <link href="css/style.css" rel="stylesheet">
-        <!--[if lt IE 9]>
-        <script src="js/html5.js"></script>
-        <![endif]-->
-    </head>
-    <body>
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="brand" href="index.html">Atheme</a>
-                    <div class="nav-collapse">
-                        <ul class="nav">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="atheme.html">Atheme</a></li>
-                            <li><a href="iris.html">Iris</a></li>
-                            <li><a href="web.html">Atheme-Web</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="http://ircforums.net/#atheme.33">Forums</a></li>
-                            <li><a href="https://github.com/atheme">GitHub</a></li>
-                            <li><a href="http://webchat.staticbox.net/?channels=atheme&amp;prompt=1">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/atheme-style.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Atheme.net</a>
         </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://atheme.org/"><span class="fa fw-fw fa-users"></span> Atheme.org</a></li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html"><span class="fa fa-fw fa-home"></span> Home</a></li>
+            <li><a href="atheme.html"><span class="fa fa-fw fa-group"></span> Atheme</a></li>
+            <li><a href="iris.html"><span class="fa fa-fw fa-terminal"></span> Iris</a></li>
+            <li><a href="web.html"><span class="fa fa-fw fa-globe"></span> Atheme-Web</a></li>
+            <li><a href="faq.html"><span class="fa fw-fw fa-question"></span> FAQ</a></li>
+            <li><a href="https://github.com/atheme"><span class="fa fw-fw fa-github"></span> GitHub</a></li>
+            <li><a href="contact.html"><span class="fa fw-fw fa-envelope"></span> Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-        <div class="container">
-            <div class="hero-unit pagination-centered">
-                <h1>The Atheme IRC Platform</h1>
-                <h1>Powered By:</h1>
-            </div>
-            <div class="row">
-                <div class="span4">
-                    <h1><a href="atheme.html">Atheme</a></h1>
-                    <p>Atheme is a feature-packed, extremely customisable IRC services daemon that is secure, stable and scalable.</p>
-                    <br />
-                    <a class="btn btn-large btn-success" href="downloads/atheme-services-7.0.6.tar.bz2">Download</a>
-                    <a class="btn btn-large" href="atheme.html">More Info</a>
-                </div>
-                <div class="span4">
-                    <h1><a href="iris.html">Iris</a></h1>
-                    <p>Iris is an AJAX IRC web client, designed to integrate with the Atheme IRC platform and to be IRCv3 compliant.</p>
-                    <br />
-                    <a class="btn btn-large btn-info" href="https://github.com/atheme/iris/tarball/master">Download</a>
-                    <a class="btn btn-large" href="iris.html">More Info</a>
-                </div>
-                <div class="span4">
-                    <h1><a href="web.html">Atheme-Web</a></h1>
-                    <p>Atheme-Web is a web interface for Services which makes the core features available over the web.</p>
-                    <br />
-                    <a class="btn btn-large btn-warning" href="downloads/atheme-web-0.2.0.tar.bz2">Download</a>
-                    <a class="btn btn-large" href="web.html">More Info</a>
-                </div>
-            </div>
-            <hr>
-            <footer>
-                <p>&copy; Atheme.org 2012</p>
-            </footer>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>The Atheme IRC Platform</h1>
+        <h1>Powered By:</h1>
+      </div>
+    </div>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 marketing-text">
+          <h1><a href="iris.html"><span class="fa fa-fw fa-terminal"></span> Iris</a></h1>
+          <p>Iris is an AJAX IRC web client, designed to integrate with the Atheme IRC platform and to be IRCv3 compliant.</p>
+          <br />
+          <a class="btn btn-lg btn-success" href="https://github.com/atheme/iris/tarball/master">Download</a>
+          <a class="btn btn-lg btn-default" href="iris.html">More Info</a>
         </div>
-        <script src="js/jquery.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-    </body>
+        
+        <div class="col-md-4 marketing-text">
+          <h1><a href="atheme.html"><span class="fa fa-fw fa-group"></span> Atheme</a></h1>
+          <p>Atheme is a feature-packed, extremely customisable IRC services daemon that is secure, stable and scalable.</p>
+          <br />
+          <a class="btn btn-lg btn-primary" href="downloads/atheme-services-7.0.6.tar.bz2">Download</a>
+          <a class="btn btn-lg btn-default" href="atheme.html">More Info</a>
+        </div>
+        
+        
+        <div class="col-md-4 marketing-text">
+          <h1><a href="web.html"><span class="fa fa-fw fa-globe"></span> Atheme-Web</a></h1>
+          <p>Atheme-Web is a web interface for Services which makes the core features available over the web.</p>
+          <br /><br />
+          <a class="btn btn-lg btn-warning" href="downloads/atheme-web-0.2.0.tar.bz2">Download</a>
+          <a class="btn btn-lg btn-default" href="web.html">More Info</a>
+        </div>
+      </div>
+      
+      <hr>
+      
+      <footer>
+        <p>&copy; <a href="http://atheme.org/" style="color:black;">Atheme.org</a> 2012-2014</p>
+      </footer>
+    </div>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
 </html>

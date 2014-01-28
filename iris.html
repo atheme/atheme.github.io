@@ -1,73 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Iris AJAX IRC Client</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Atheme IRC Services">
-        <meta name="author" content="Alyx Wolcott">
+  <head>
+    <meta charset="utf-8">
+    <title>Atheme IRC Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Atheme IRC Services">
+    <meta name="author" content="Alyx Wolcott">
+    <meta name="author" content="Andrew Northall">
 
-        <link href="css/style.css" rel="stylesheet">
-        <!--[if lt IE 9]>
-        <script src="js/html5.js"></script>
-        <![endif]-->
-    </head>
-    <body>
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="brand" href="index.html">Atheme</a>
-                    <div class="nav-collapse">
-                        <ul class="nav">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="atheme.html">Atheme</a></li>
-                            <li class="active"><a href="iris.html">Iris</a></li>
-                            <li><a href="web.html">Atheme-Web</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="http://ircforums.net/#atheme.33">Forums</a></li>
-                            <li><a href="https://github.com/atheme/iris">GitHub</a></li>
-                            <li><a href="http://webchat.staticbox.net/?channels=atheme&amp;prompt=1">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/atheme-style.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Atheme</a>
         </div>
-
-        <div class="container">
-            <div class="hero-unit pagination-centered">
-                <h1>Iris</h1>
-                <h2>Iris is an AJAX IRC client. It is a drop-in replacement for qwebirc,
-                    and is designed to integrate with <a href="atheme.html">the Atheme IRC platform</a>.</h2>
-                <a class="btn btn-large btn-info" href="http://chat.thinstack.net/?nick=&amp;channels=&amp;fg_color=333&amp;fg_sec_color=333&amp;bg_color=#fcfff5">Try out Iris</a>
-            </div>
-            <div class="row">
-                <div class="span4">
-                    <h1>Python + AJAX</h1>
-                    <p>Iris is built from the ground up using <a href="http://python.org/">Python</a> and a frontend
-                        powered by the <a href="http://mootools.net/">MooTools JavaScript library</a>. This AJAX-powered
-                        web client means no need for Flash, Java or any browser plugins. IRC from the browser has never
-                        been easier.</p>
-                </div>
-                <div class="span4">
-                    <h1><a href="https://github.com/atheme/iris">Download</a></h1>
-                    <p>You can download Iris by either grabbing a copy of <a href="https://github.com/atheme/iris/tarball/master">the git tarball</a> or
-                        by installing <a href="http://git-scm.com">git</a> and cloning <a href="git://github.com/atheme/iris.git"><code>git://github.com/atheme/iris.git</code></a>.
-                        For more information, see <a href="https://github.com/atheme/iris">Iris' page on GitHub</a>.</p>
-                </div>
-                <div class="span4">
-                    <h1>Atheme Integration</h1>
-                    <p>Iris is designed to integrate brilliantly with the Atheme IRC platform. It supports <strong>automatic channel listing</strong> through
-                        ALIS, and <strong>identification to services</strong> through the SASL protocol.</p>
-                </div>
-            </div>
-
-            <hr>
-            <footer>
-                <p>&copy; Atheme.org 2012</p>
-            </footer>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html"><span class="fa fa-fw fa-home"></span> Home</a></li>
+            <li><a href="atheme.html"><span class="fa fa-fw fa-group"></span> Atheme</a></li>
+            <li class="active"><a href="iris.html"><span class="fa fa-fw fa-terminal"></span> Iris</a></li>
+            <li><a href="web.html"><span class="fa fa-fw fa-globe"></span> Atheme-Web</a></li>
+            <li><a href="faq.html"><span class="fa fw-fw fa-question"></span> FAQ</a></li>
+            <li><a href="https://github.com/atheme"><span class="fa fw-fw fa-github"></span> GitHub</a></li>
+            <li><a href="contact.html"><span class="fa fw-fw fa-envelope"></span> Contact</a></li>
+          </ul>
         </div>
-        <script src="js/jquery.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-    </body>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Iris</h1>
+        <p class="lead">The Atheme answer to Web IRC.</p>
+        <a class="btn btn-lg btn-info" href="https://webchat.staticbox.net/">Try out Iris</a>
+        <a class="btn btn-lg btn-success" href="https://github.com/atheme/iris/">Download</a>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <h1>Python + AJAX</h1>
+          <p>Iris is built from the ground up using <a href="http://python.org/">Python</a> and a frontend
+            powered by the <a href="http://mootools.net/">MooTools JavaScript library</a>. This AJAX-powered
+            web client means no need for Flash, Java or any browser plugins. IRC from the browser has never
+            been easier.</p>
+        </div>
+        <div class="col-md-4">
+          <h1>Download</h1>
+          <p>You can download Iris by either grabbing a copy of <a href="https://github.com/atheme/iris/tarball/master">the git tarball</a> or
+            by installing <a href="http://git-scm.com">git</a> and cloning <a href="git://github.com/atheme/iris.git"><code>git://github.com/atheme/iris.git</code></a>.
+            For more information please visit the <a href="https://github.com/atheme/iris">GitHub repository</a>.</p>
+        </div>
+        <div class="col-md-4">
+          <h1>Atheme Integration</h1>
+          <p>Iris is designed to integrate brilliantly with the Atheme IRC platform. It supports <strong>automatic channel listing</strong> through
+            ALIS, and <strong>identification to services</strong> through the SASL protocol.</p>
+        </div>
+      </div>
+
+      <hr>
+      
+      <footer>
+        <p>&copy; <a href="http://atheme.org/" style="color:black;">Atheme.org</a> 2012-2014</p>
+      </footer>
+    </div>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
 </html>
-
