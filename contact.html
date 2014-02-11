@@ -37,9 +37,14 @@
         
           <ul class="nav navbar-nav">
             <li><a href="index.html"><span class="fa fa-fw fa-home"></span> Home</a></li>
-            <li><a href="atheme.html"><span class="fa fa-fw fa-group"></span> Atheme</a></li>
-            <li><a href="iris.html"><span class="fa fa-fw fa-terminal"></span> Iris</a></li>
-            <li><a href="web.html"><span class="fa fa-fw fa-globe"></span> Atheme-Web</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-fw fa-group"></span> Components <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="atheme.html"><span class="fa fa-fw fa-group"></span> Atheme Services</a></li>
+                <li><a href="iris.html"><span class="fa fa-fw fa-terminal"></span> Iris</a></li>
+                <li><a href="web.html"><span class="fa fa-fw fa-globe"></span> Atheme-Web</a></li>
+              </ul>
+            </li>
             <li><a href="faq.html"><span class="fa fw-fw fa-question"></span> FAQ</a></li>
             <li><a href="https://github.com/atheme"><span class="fa fw-fw fa-github"></span> GitHub</a></li>
             <li class="active"><a href="contact.html"><span class="fa fw-fw fa-envelope"></span> Contact</a></li>
@@ -49,7 +54,7 @@
     </div>
 
     <div class="container">
-      <div class="alert alert-info">
+      <div class="alert alert-success">
         <strong>Have your own IRC client?</strong> You can chat with us on <a href="irc://irc.atheme.org/atheme"><strong>irc.atheme.org</strong></a> in <a href="irc://irc.atheme.org/atheme"><strong>#atheme</strong></a>.
       </div>
       <iframe src="https://webchat.staticbox.net/?channels=atheme&prompt=1&bg_color=F2F2F2" width="100%" height="460" frameBorder="0"></iframe>
