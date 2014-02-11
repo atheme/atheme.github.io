@@ -2,12 +2,19 @@ body, .jumbotron, .well {
 	background-color: #F2F2F2;
 }
 
-.iris {
+.iris, .iris:hover {
 	color: #43ac6a;
+	text-decoration: none;
 }
 
-.web {
+.web, .web:hover {
 	color: #e99002;
+	text-decoration: none;
+}
+
+.atheme, .atheme:hover {
+	color: #008CBA;
+	text-decoration: none;
 }
 
 .jumbotron {
