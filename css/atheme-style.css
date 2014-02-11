@@ -1,5 +1,13 @@
-body {
+body, .jumobtron, .well {
 	background-color: #F2F2F2;
+}
+
+.iris {
+	color: #43ac6a;
+}
+
+.web {
+	color: #e99002;
 }
 
 .jumbotron {
