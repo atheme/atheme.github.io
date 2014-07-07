@@ -1,0 +1,162 @@
+<html><head><title>Atheme help - HostServ</title>
+<meta name="generator" content="atheme html_helpfiles.sh">
+</head><body>
+</head><body>
+<h1>HostServ</h1>
+<a name="ACTIVATE"><h2>ACTIVATE</h2></a>
+<p>
+Activate the requested vHost for the given nick.
+A memo informing the user will also be sent.
+If an asterisk ("*") is used in place of a nick,
+all waiting vHosts will be activated.
+<p>
+<strong>Syntax:</strong> <tt>ACTIVATE &lt;nick&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg HostServ ACTIVATE nenolod</tt>
+<br><tt>/msg HostServ ACTIVATE *</tt>
+<a name="GROUP"><h2>GROUP</h2></a>
+<p>
+This command will set the current nick's vhost as the
+vhost for all the nicks in the group, including nicks
+that will be added in the future.
+<p>
+<strong>Syntax:</strong> <tt>GROUP</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg HostServ GROUP</tt>
+<a name="LISTVHOST"><h2>LISTVHOST</h2></a>
+<p>
+LISTVHOST allows operators to see virtual hosts (also
+known as spoofs or cloaks) matching a given pattern. 
+If no pattern is specified, it lists all existing vhosts.
+<p>
+<strong>Syntax:</strong> <tt>LISTVHOST [&lt;pattern&gt;]</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg HostServ LISTVHOST *lulz.com*</tt>
+<br><tt>/msg HostServ LISTVHOST</tt>
+<a name="OFF"><h2>OFF</h2></a>
+<p>
+Deactivates the vhost currently assigned to the nick in use.
+When you use this command, any user who performs a /whois
+on your nick will see your real IP address.
+<p>
+For permanent removal of your vhost, please see network staff.
+<p>
+<strong>Syntax:</strong> <tt>OFF</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg HostServ OFF</tt>
+<a name="OFFER"><h2>OFFER</h2></a>
+<p>
+OFFER allows you to offer a list of vhosts to the users
+of your network that they can accept at will without needing
+an oper to set the vhost. The string $account in the offered
+vhost will be replaced by a users' account name when they TAKE it.
+<p>
+If the !group parameter is provided, only users with the +v flag
+in that group will be able to see it in OFFERLIST and TAKE it.
+<p>
+<strong>Syntax:</strong> <tt>OFFER [!group] &lt;vhost&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg HostServ OFFER may.explode.on.impact</tt>
+<br><tt>/msg HostServ OFFER mynetwork.users.$account</tt>
+<br><tt>/msg HostServ OFFER !atheme-users $account.users.atheme.net</tt>
+<a name="OFFERLIST"><h2>OFFERLIST</h2></a>
+<p>
+OFFERLIST lists all vhosts currently available from
+the network staff.
+<p>
+<strong>Syntax:</strong> <tt>OFFERLIST</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg HostServ OFFERLIST</tt>
+<a name="ON"><h2>ON</h2></a>
+<p>
+Activates the vhost currently assigned to the nick in use.
+When you use this command any user who performs a /whois
+on you will see the vhost instead of your real IP address.
+<p>
+<strong>Syntax:</strong> <tt>ON</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg HostServ ON</tt>
+<a name="REJECT"><h2>REJECT</h2></a>
+<p>
+Reject the requested vHost for the given nick.
+A memo informing the user will also be sent.
+If an asterisk ("*") is used in place of a nick,
+all waiting vHosts will be rejected.
+<p>
+<strong>Syntax:</strong> <tt>REJECT &lt;nick&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg HostServ REJECT nenolod</tt>
+<br><tt>/msg HostServ REJECT *</tt>
+<a name="REQUEST"><h2>REQUEST</h2></a>
+<p>
+REQUEST activation of the vhost. You must be <b>identified</b>
+to a registered nick to issue this command. Please be
+patient while your request is considered by network staff.
+<p>
+<strong>Syntax:</strong> <tt>REQUEST &lt;vhost&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg HostServ REQUEST may.explode.on.impact</tt>
+<a name="TAKE"><h2>TAKE</h2></a>
+<p>
+TAKE allows you to set a vhost that the network staff
+has offered and use it on your account. If the string
+$account is in the vhost, it will be replaced with your
+account name.
+<p>
+<strong>Syntax:</strong> <tt>TAKE &lt;vhost&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg HostServ TAKE $account.users.example.net</tt>
+<br><tt>/msg HostServ TAKE example.net</tt>
+<a name="UNOFFER"><h2>UNOFFER</h2></a>
+<p>
+Remove a offered vhost from the OFFER list.
+<p>
+<strong>Syntax:</strong> <tt>UNOFFER &lt;vhost&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg HostServ UNOFFER users.example.net</tt>
+<a name="VHOST"><h2>VHOST</h2></a>
+<p>
+VHOST allows operators to set a virtual host (also
+known as a spoof or cloak) on an account. This vhost
+will be set on the user immediately and each time
+they identify to their account. If no vhost is 
+specified, it will clear all existing vhosts on the account.
+<p>
+<strong>Syntax:</strong> <tt>VHOST &lt;nickname&gt; [&lt;vhost&gt;]</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg HostServ VHOST spb may.explode.on.impact</tt>
+<br><tt>/msg HostServ VHOST nenolod</tt>
+<a name="VHOSTNICK"><h2>VHOSTNICK</h2></a>
+<p>
+VHOSTNICK allows operators to set a virtual host (also
+known as a spoof or cloak) on a nick. This vhost
+will be set on the user immediately and each time
+they identify when using said nick. If no vhost is 
+specified, revert to the account's vhost.
+<p>
+<strong>Syntax:</strong> <tt>VHOSTNICK &lt;nickname&gt; [&lt;vhost&gt;]</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg HostServ VHOSTNICK spb may.explode.on.impact</tt>
+<br><tt>/msg HostServ VHOSTNICK nenolod</tt>
+<a name="WAITING"><h2>WAITING</h2></a>
+<p>
+WAITING lists all vhosts currently waiting for activation.
+<p>
+<strong>Syntax:</strong> <tt>WAITING</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg HostServ WAITING</tt>
+</body></html>

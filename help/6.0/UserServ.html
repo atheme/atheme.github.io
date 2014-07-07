@@ -1,0 +1,420 @@
+<html><head><title>Atheme help - UserServ</title>
+<meta name="generator" content="atheme html_helpfiles.sh">
+</head><body>
+</head><body>
+<h1>UserServ</h1>
+<a name="CERT"><h2>CERT</h2></a>
+<p>
+CERT maintains a list of CertFP fingerprints that will allow
+UserServ to recognize you and authenticate you automatically.
+<p>
+You cannot add the same fingerprint to multiple accounts.
+<p>
+<strong>Syntax:</strong> <tt>CERT LIST</tt><br>
+<strong>Syntax:</strong> <tt>CERT ADD [fingerprint]</tt><br>
+<strong>Syntax:</strong> <tt>CERT DEL &lt;fingerprint&gt;</tt><br>
+<p>
+Operators with user:auspex privilege can also
+view another user's fingerprint list.
+<p>
+<strong>Syntax:</strong> <tt>CERT LIST &lt;account&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg UserServ CERT LIST</tt>
+<br><tt>/msg UserServ CERT ADD f3a1aad46ca88e180c25c9c7021a4b3a</tt>
+<br><tt>/msg UserServ CERT DEL f3a1aad46ca88e180c25c9c7021a4b3a</tt>
+<a name="DROP"><h2>DROP</h2></a>
+<p>
+Using this command removes your account from services' database.
+You will lose all your channel access and memos. If an account
+is dropped, anyone else can re-register it. You need to log in
+to services before doing this.  
+<p>
+When dropping and re-registering an account during a netsplit,
+users on the other side of the split may later be recognized
+as the new account.
+<p>
+<strong>Syntax:</strong> <tt>DROP &lt;account&gt; &lt;password&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg UserServ DROP foo bar</tt>
+<a name="FREEZE"><h2>FREEZE</h2></a>
+<p>
+FREEZE allows operators to "freeze" an abusive user's
+account. Users cannot log into a frozen account. Thus,
+users cannot obtain the access associated with the
+account.
+<p>
+FREEZE information will be displayed in INFO output.
+<p>
+<strong>Syntax:</strong> <tt>FREEZE &lt;account&gt; ON|OFF &lt;reason&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg UserServ FREEZE pfish ON Persistent spammer</tt>
+<br><tt>/msg UserServ FREEZE alambert OFF</tt>
+<a name="FVERIFY"><h2>FVERIFY</h2></a>
+<p>
+FVERIFY allows administrators to confirm a change
+associated with an account registration without
+having the verification email.
+<p>
+<strong>Syntax:</strong> <tt>FVERIFY &lt;operation&gt; &lt;nickname&gt;</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg UserServ FVERIFY REGISTER jenny</tt>
+<br><tt>/msg UserServ FVERIFY EMAILCHG Aeriana</tt>
+<a name="HOLD"><h2>HOLD</h2></a>
+<p>
+HOLD prevents an account and all channels registered to
+it from expiring.
+<p>
+<strong>Syntax:</strong> <tt>HOLD &lt;account&gt; ON|OFF</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg UserServ HOLD jilles ON</tt>
+<a name="INFO"><h2>INFO</h2></a>
+<p>
+INFO displays account information such as
+registration time, flags, and other details.
+<p>
+You can query the account a user is logged in as
+by specifying an equals sign followed by their
+nick. This '=' convention works with most commands.
+<p>
+<strong>Syntax:</strong> <tt>INFO &lt;account&gt;</tt><br>
+<strong>Syntax:</strong> <tt>INFO =&lt;online user&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg UserServ INFO w00t</tt>
+Shows information about the account w00t.
+<br><tt>/msg UserServ INFO =w00tie[home]</tt>
+Shows information about the account the user
+w00tie[home] is logged in as.
+<a name="LIST"><h2>LIST</h2></a>
+<p>
+LIST shows accounts that match a given
+pattern. Wildcards are allowed.
+<p>
+If user@host is also given, only accounts
+whose last seen host matches it are shown.
+<p>
+<strong>Syntax:</strong> <tt>LIST &lt;pattern&gt;</tt><br>
+<strong>Syntax:</strong> <tt>LIST &lt;pattern&gt;!&lt;user@host&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg UserServ LIST james*</tt>
+<br><tt>/msg UserServ LIST *a?ambert*</tt>
+<br><tt>/msg UserServ LIST *!*@*.de</tt>
+<a name="LISTCHANS"><h2>LISTCHANS</h2></a>
+<p>
+LISTCHANS shows the channels that you have access
+to, including those that you own.
+<p>
+AKICKs and host-based access are not shown.
+<p>
+<strong>Syntax:</strong> <tt>LISTCHANS</tt><br>
+<p>
+Operators with user:auspex privilege can also
+check another user's access.
+<p>
+<strong>Syntax:</strong> <tt>LISTCHANS &lt;account&gt;</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg UserServ LISTCHANS</tt>
+<a name="LISTMAIL"><h2>LISTMAIL</h2></a>
+<p>
+LISTMAIL shows accounts registered to a
+given e-mail address. Wildcards are allowed.
+<p>
+<strong>Syntax:</strong> <tt>LISTMAIL &lt;email&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg UserServ LISTMAIL patrick@example.com</tt>
+<br><tt>/msg UserServ LISTMAIL *@cam.ac.uk</tt>
+<a name="LISTVHOST"><h2>LISTVHOST</h2></a>
+<p>
+LISTVHOST shows accounts which have a vhost set
+on them. If a pattern is given, only accounts
+with vhosts matching the pattern are shown.
+<p>
+<strong>Syntax:</strong> <tt>LISTVHOST [pattern]</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg UserServ LISTVHOST</tt>
+<br><tt>/msg UserServ LISTVHOST *staff*</tt>
+<a name="LOGIN"><h2>LOGIN</h2></a>
+<p>
+LOGIN identifies you with services so that you
+can perform general maintenance and commands that
+require you to be logged in.
+<p>
+<strong>Syntax:</strong> <tt>LOGIN &lt;account&gt; &lt;password&gt;</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg UserServ LOGIN smith sesame</tt>
+<a name="LOGOUT"><h2>LOGOUT</h2></a>
+<p>
+LOGOUT logs you out of the account
+that you are currently logged into.
+<p>
+<strong>Syntax:</strong> <tt>LOGOUT</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg UserServ LOGOUT</tt>
+<a name="MARK"><h2>MARK</h2></a>
+<p>
+MARK allows operators to attach a note to an account.
+For example, an operator could mark the account of a
+spammer so that others know the user has previously
+been warned.
+<p>
+MARK information will be displayed in INFO output.
+<p>
+<strong>Syntax:</strong> <tt>MARK &lt;account&gt; ON|OFF &lt;reason&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg UserServ MARK game_boy ON Persistent spammer</tt>
+<br><tt>/msg UserServ MARK nenolod OFF</tt>
+<a name="REGISTER"><h2>REGISTER</h2></a>
+<p>
+This will register an account with UserServ. This allows
+you to get access to channels more easily and use memos
+(if enabled). The password is a case-sensitive password
+that you make up. Please write down or memorize your
+password! You will need it later to change settings.
+<p>
+You have to to confirm the email address. To do this,
+follow the instructions in the message sent to the email
+address.
+<p>
+<strong>Syntax:</strong> <tt>REGISTER &lt;account&gt; &lt;password&gt; &lt;email-address&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg UserServ REGISTER foo sesame foo@bar.com</tt>
+<a name="RESETPASS"><h2>RESETPASS</h2></a>
+<p>
+RESETPASS sets a random password for the specified
+account.
+<p>
+<strong>Syntax:</strong> <tt>RESETPASS &lt;account&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg UserServ RESETPASS pfish</tt>
+<a name="RETURN"><h2>RETURN</h2></a>
+<p>
+RETURN resets the specified account
+password, sends it to the email address
+specified and changes account's email address
+to this address. Any current sessions logged
+in to the account are logged out.
+<p>
+<strong>Syntax:</strong> <tt>RETURN &lt;account&gt; &lt;e-mail&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg UserServ RETURN jdoe john@example.com</tt>
+<a name="SENDPASS"><h2>SENDPASS</h2></a>
+<p>
+SENDPASS emails the password for the specified
+account to the corresponding email address.
+SENDPASS emails a key to the email address
+corresponding to the specified account
+that can be used to set a new password
+using SETPASS.
+<p>
+<strong>Syntax:</strong> <tt>SENDPASS &lt;account&gt;</tt><br>
+<p>
+If the account is marked, you can override this
+using the FORCE keyword.
+<p>
+<strong>Syntax:</strong> <tt>SENDPASS &lt;account&gt; FORCE</tt><br>
+<p>
+If a key has been emailed but not yet used,
+you can clear it using the CLEAR keyword.
+<p>
+<strong>Syntax:</strong> <tt>SENDPASS &lt;account&gt; CLEAR</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg UserServ SENDPASS foo</tt>
+<a name="SENDPASS"><h2>SENDPASS</h2></a>
+<p>
+SENDPASS emails a key to the email address
+corresponding to the specified account
+that can be used to set a new password
+using SETPASS.
+<p>
+<strong>Syntax:</strong> <tt>SENDPASS &lt;account&gt;</tt><br>
+<p>
+If a key has been emailed but not yet used,
+you can clear it using the CLEAR keyword.
+<p>
+<strong>Syntax:</strong> <tt>SENDPASS &lt;account&gt; CLEAR</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg UserServ SENDPASS foo</tt>
+<a name="SET EMAIL"><h2>SET EMAIL</h2></a>
+<p>
+SET EMAIL changes the e-mail address
+associated with an account. The e-mail
+address is used for password retrieval.
+<p>
+You may be required to confirm the new
+e-mail address. To confirm the address,
+follow the instructions in the message
+sent to the new address.
+<p>
+<strong>Syntax:</strong> <tt>SET EMAIL &lt;new address&gt;</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg UserServ SET EMAIL dan@example.com</tt>
+<a name="SET EMAILMEMOS"><h2>SET EMAILMEMOS</h2></a>
+<p>
+This will forward memos sent to your account
+to the email address listed on your registration.
+<p>
+<strong>Syntax:</strong> <tt>SET EMAILMEMOS [ON|OFF]</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg UserServ SET EMAILMEMOS ON</tt>
+<a name="SET HIDEMAIL"><h2>SET HIDEMAIL</h2></a>
+<p>
+SET HIDEMAIL prevents an account's e-mail address
+from being shown to other users.
+<p>
+<strong>Syntax:</strong> <tt>SET HIDEMAIL ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg UserServ SET HIDEMAIL ON</tt>
+<a name="SET NEVEROP"><h2>SET NEVEROP</h2></a>
+<p>
+SET NOOP prevents others from adding you to
+channel access lists.
+<p>
+<strong>Syntax:</strong> <tt>SET NEVEROP ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg UserServ SET NEVEROP on</tt>
+<a name="SET NOOP"><h2>SET NOOP</h2></a>
+<p>
+SET NOOP prevents services from automatically
+opping you in channels you have access in.
+You can choose to op/voice yourself by using
+the UserServ OP and VOICE commands.
+<p>
+<strong>Syntax:</strong> <tt>SET NOOP ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg UserServ SET NOOP ON</tt>
+<a name="SET PASSWORD"><h2>SET PASSWORD</h2></a>
+<p>
+SET PASSWORD changes the password of an account.
+<p>
+<strong>Syntax:</strong> <tt>SET PASSWORD &lt;new password&gt;</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg UserServ SET PASSWORD swordfish</tt>
+<a name="SET PRIVATE"><h2>SET PRIVATE</h2></a>
+<p>
+SET PRIVATE hides various information about your
+account from other users.
+<p>
+SET PRIVATE ON automatically enables HIDEMAIL too.
+<p>
+<strong>Syntax:</strong> <tt>SET PRIVATE ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg UserServ SET PRIVATE ON</tt>
+<a name="SET PRIVMSG"><h2>SET PRIVMSG</h2></a>
+<p>
+SET PRIVMSG causes Services to use private messages
+when talking to the user authenticated on this account.
+<p>
+<strong>Syntax:</strong> <tt>SET PRIVMSG ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg UserServ SET PRIVMSG ON</tt>
+<a name="SET PROPERTY"><h2>SET PROPERTY</h2></a>
+<p>
+SET PROPERTY manipulates metadata
+associated with an account.
+<p>
+To delete a metadata entry, specify
+the name and leave the value blank.
+<p>
+<strong>Syntax:</strong> <tt>SET PROPERTY &lt;name&gt; [value]</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg UserServ SET PROPERTY URL http://www.example.com/~jay/</tt>
+<br><tt>/msg UserServ SET PROPERTY SIGN Pisces</tt>
+<br><tt>/msg UserServ SET PROPERTY ICQ</tt>
+<a name="SETPASS"><h2>SETPASS</h2></a>
+<p>
+SETPASS allows you to set a new password
+using a key emailed to you. The key is
+valid for one time only, and also becomes
+invalid if you identify with your old password.
+<p>
+To set a new password if you know the current
+password, use SET PASSWORD instead of SETPASS.
+<p>
+<strong>Syntax:</strong> <tt>SETPASS &lt;account&gt; &lt;key&gt; &lt;password&gt;</tt><br>
+<a name="STATUS"><h2>STATUS</h2></a>
+<p>
+STATUS returns information about your current
+state. It will show information about your
+account, IRC operator, and SRA status.
+<p>
+<strong>Syntax:</strong> <tt>STATUS</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg UserServ STATUS</tt>
+<a name="TAXONOMY"><h2>TAXONOMY</h2></a>
+<p>
+The taxonomy command lists metadata information associated
+with registered users.
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg UserServ TAXONOMY foo</tt>
+<a name="VACATION"><h2>VACATION</h2></a>
+<p>
+VACATION extends the expiration time for your
+account (but not your channels) to three
+times the usual value. You can only do this
+if your account is registered long enough.
+<p>
+Vacation mode is disabled automatically the
+next time you log in to UserServ.
+<p>
+<strong>Syntax:</strong> <tt>VACATION</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg UserServ VACATION</tt>
+<a name="VERIFY"><h2>VERIFY</h2></a>
+<p>
+VERIFY confirms a change associated with
+your account registration.
+<p>
+<strong>Syntax:</strong> <tt>VERIFY &lt;operation&gt; &lt;account&gt; &lt;key&gt;</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg UserServ VERIFY REGISTER jenny 161803399</tt>
+<br><tt>/msg UserServ VERIFY EMAILCHG Aeriana 271828183</tt>
+<a name="VHOST"><h2>VHOST</h2></a>
+<p>
+VHOST allows operators to set a virtual host (also
+known as a spoof or cloak) on an account. This vhost
+will be set on the user immediately and each time
+they log in.
+<p>
+<strong>Syntax:</strong> <tt>VHOST &lt;account&gt; ON &lt;vhost&gt;</tt><br>
+<strong>Syntax:</strong> <tt>VHOST &lt;account&gt; OFF</tt><br>
+<p>
+If the account is marked, you can override this
+using the FORCE keyword.
+<p>
+<strong>Syntax:</strong> <tt>VHOST &lt;account&gt; ON &lt;vhost&gt; FORCE</tt><br>
+<strong>Syntax:</strong> <tt>VHOST &lt;account&gt; OFF FORCE</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg UserServ VHOST spb ON may.explode.on.impact</tt>
+<br><tt>/msg UserServ VHOST nenolod OFF</tt>
+</body></html>
