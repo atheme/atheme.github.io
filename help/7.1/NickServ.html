@@ -1,0 +1,791 @@
+<html><head><title>Atheme help - NickServ</title>
+<meta name="generator" content="atheme html_helpfiles.sh">
+</head><body>
+</head><body>
+<h1>NickServ</h1>
+<a name="ACC"><h2>ACC</h2></a>
+<p>
+ACC returns parsable information about a user's
+login status. Note that on many networks, /whois
+shows similar information faster and more reliably.
+ACC also returns the unique entity ID of the given account.
+The answer is in the form &lt;nick&gt; [-&gt; account] ACC &lt;digit&gt; &lt;EID&gt;,
+where &lt;digit&gt; is one of the following:
+<br><tt>0 - account or user does not exist</tt>
+<br><tt>1 - account exists but user is not logged in</tt>
+<br><tt>2 - user is not logged in but recognized (see ACCESS)</tt>
+<br><tt>3 - user is logged in</tt>
+<p>
+If the account is omitted the user's nick is used and
+the " -&gt; account" portion of the reply is omitted.
+Account * means the account the user is logged in with.
+<p>
+<strong>Syntax:</strong> <tt>ACC</tt><br>
+<strong>Syntax:</strong> <tt>ACC &lt;nick&gt;</tt><br>
+<strong>Syntax:</strong> <tt>ACC &lt;nick&gt; &lt;account&gt;</tt><br>
+<strong>Syntax:</strong> <tt>ACC &lt;nick&gt; *</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ ACC jilles *</tt>
+<a name="ACCESS"><h2>ACCESS</h2></a>
+<p>
+ACCESS maintains a list of user@host masks from where
+NickServ will recognize you, so it will not prompt you to
+change nick. Preventing expiry, getting channel access
+or editing nickname settings still requires
+identification, however.
+<p>
+Access list entries can use hostnames with optional
+wildcards, IP addresses and CIDR masks. There are
+restrictions on how much you can wildcard. If you omit
+the mask, NickServ will attempt to generate one matching
+your current connection.
+<p>
+<strong>Syntax:</strong> <tt>ACCESS LIST</tt><br>
+<strong>Syntax:</strong> <tt>ACCESS ADD [mask]</tt><br>
+<strong>Syntax:</strong> <tt>ACCESS DEL &lt;mask&gt;</tt><br>
+<p>
+Operators with user:auspex privilege can also
+view another user's access list.
+<p>
+<strong>Syntax:</strong> <tt>ACCESS LIST &lt;nick&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ ACCESS LIST</tt>
+<br><tt>/msg NickServ ACCESS ADD jack@host.example.com</tt>
+<br><tt>/msg NickServ ACCESS ADD user@10.0.0.8</tt>
+<br><tt>/msg NickServ ACCESS ADD jilles@192.168.1.0/24</tt>
+<br><tt>/msg NickServ ACCESS DEL *someone@*.area.old.example.net</tt>
+<a name="BADMAIL"><h2>BADMAIL</h2></a>
+<p>
+BADMAIL allows you to maintain a list of email addresses that are
+not allowed to be used to register accounts.
+<p>
+These email addresses are saved to the Atheme database and are kept
+between services restarts.
+<p>
+In BADMAIL ADD, you are able to use glob matching to disallow email
+addresses that match a pattern.
+<p>
+<strong>Syntax:</strong> <tt>BADMAIL ADD &lt;email&gt; [reason]</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ BADMAIL ADD jdhore1@gmail.com bar reason</tt>
+<br><tt>/msg NickServ BADMAIL ADD *@aol.com bar reason</tt>
+<br><tt>/msg NickServ BADMAIL ADD *@*.tk foo reason</tt>
+<br><tt>/msg NickServ BADMAIL ADD some-spambot-pattern-*@gmail.com</tt>
+<p>
+BADMAIL DEL allows you to remove entries from the list of currently
+banned email addresses.
+<p>
+<strong>Syntax:</strong> <tt>BADMAIL DEL &lt;email&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ BADMAIL DEL foo@bar.com</tt>
+<br><tt>/msg NickServ BADMAIL DEL *@aol.com</tt>
+<p>
+BADMAIL LIST allows you to list the currently banned email addresses.
+<p>
+<strong>Syntax:</strong> <tt>BADMAIL LIST</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ BADMAIL LIST</tt>
+<a name="CERT"><h2>CERT</h2></a>
+<p>
+CERT maintains a list of CertFP fingerprints that will allow
+NickServ to recognize you and authenticate you automatically.
+<p>
+You cannot add the same fingerprint to multiple accounts.
+<p>
+<strong>Syntax:</strong> <tt>CERT LIST</tt><br>
+<strong>Syntax:</strong> <tt>CERT ADD [fingerprint]</tt><br>
+<strong>Syntax:</strong> <tt>CERT DEL &lt;fingerprint&gt;</tt><br>
+<p>
+Operators with user:auspex privilege can also
+view another user's fingerprint list.
+<p>
+<strong>Syntax:</strong> <tt>CERT LIST &lt;nick&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ CERT LIST</tt>
+<br><tt>/msg NickServ CERT ADD f3a1aad46ca88e180c25c9c7021a4b3a</tt>
+<br><tt>/msg NickServ CERT DEL f3a1aad46ca88e180c25c9c7021a4b3a</tt>
+<a name="DROP"><h2>DROP</h2></a>
+<p>
+Using this command makes NickServ remove your account
+and stop watching your nick(s), If a nick is dropped,
+anyone else can register it. You will also lose all
+your channel access and memos.
+<p>
+When dropping and re-registering an account during a
+netsplit, users on the other side of the split may later
+be recognized as the new account.
+<p>
+<strong>Syntax:</strong> <tt>DROP &lt;nickname&gt; &lt;password&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ DROP foo bar</tt>
+<a name="FDROP"><h2>FDROP</h2></a>
+<p>
+FDROP forcefully removes the given account, including
+all nicknames, channel access and memos attached to it.
+<p>
+When dropping and re-registering an account during a
+netsplit, users on the other side of the split may later
+be recognized as the new account.
+<p>
+<strong>Syntax:</strong> <tt>FDROP &lt;nickname&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ FDROP foo</tt>
+<a name="FREEZE"><h2>FREEZE</h2></a>
+<p>
+FREEZE allows operators to "freeze" an abusive user's
+account. This logs out all sessions logged in to the
+account and prevents further logins. Thus, users
+cannot obtain the access associated with the account.
+<p>
+FREEZE information will be displayed in INFO output.
+<p>
+<strong>Syntax:</strong> <tt>FREEZE &lt;nick&gt; ON|OFF &lt;reason&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ FREEZE pfish ON Persistent spammer</tt>
+<br><tt>/msg NickServ FREEZE alambert OFF</tt>
+<a name="FUNGROUP"><h2>FUNGROUP</h2></a>
+<p>
+FUNGROUP forcefully unregisters the given nickname
+from the account it is registered to.
+<p>
+If you are ungrouping an account name, you need to
+specify a new name for the account. This must be
+another nick registered to it.
+You cannot ungroup account names.
+<p>
+<strong>Syntax:</strong> <tt>FUNGROUP &lt;nickname&gt;</tt><br>
+<strong>Syntax:</strong> <tt>FUNGROUP &lt;account&gt; &lt;newname&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ FUNGROUP SomeNick</tt>
+<br><tt>/msg NickServ FUNGROUP SomeName SomeNick</tt>
+<a name="FVERIFY"><h2>FVERIFY</h2></a>
+<p>
+FVERIFY allows administrators to confirm a change
+associated with an account registration without
+having the verification email.
+<p>
+<strong>Syntax:</strong> <tt>FVERIFY &lt;operation&gt; &lt;nickname&gt;</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ FVERIFY REGISTER jenny</tt>
+<br><tt>/msg NickServ FVERIFY EMAILCHG Aeriana</tt>
+<a name="GHOST"><h2>GHOST</h2></a>
+<p>
+GHOST disconnects an old user session, or somebody
+attempting to use your nickname without authorization.
+<p>
+If you are logged in to the nick's account, you need
+not specify a password, otherwise you have to.
+<p>
+<strong>Syntax:</strong> <tt>GHOST &lt;nick&gt; [password]</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ GHOST foo bar</tt>
+<a name="GROUP"><h2>GROUP</h2></a>
+<p>
+GROUP registers your current nickname to your account.
+This means that NickServ protects this nickname the
+same way as it protects your account name. Most
+services commands will accept the new nickname as
+an alias for your account name.
+<p>
+Please note that grouped nicks expire separately
+from accounts. To prevent this, you must use them.
+Otherwise, all properties of the account are shared
+among all nicks registered to it.
+<p>
+<strong>Syntax:</strong> <tt>GROUP</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ IDENTIFY OldNick SecretPassword</tt>
+<br><tt>/msg NickServ GROUP</tt>
+<a name="HOLD"><h2>HOLD</h2></a>
+<p>
+HOLD prevents an account and all nicknames registered
+to it from expiring.
+<p>
+<strong>Syntax:</strong> <tt>HOLD &lt;nick&gt; ON|OFF</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ HOLD jilles ON</tt>
+<a name="IDENTIFY"><h2>IDENTIFY</h2></a>
+<p>
+IDENTIFY identifies you with services so that you
+can perform general maintenance and commands that
+require you to be logged in.
+<p>
+<strong>Syntax:</strong> <tt>IDENTIFY &lt;password&gt;</tt><br>
+<p>
+You can also identify for another nick than you
+are currently using.
+<p>
+<strong>Syntax:</strong> <tt>IDENTIFY &lt;nick&gt; &lt;password&gt;</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ IDENTIFY foo</tt>
+<br><tt>/msg NickServ IDENTIFY jilles foo</tt>
+<a name="INFO"><h2>INFO</h2></a>
+<p>
+INFO displays account information such as
+registration time, flags, and other details.
+Additionally it will display registration
+and last seen time of the nick you give.
+<p>
+You can query the nick a user is logged in as
+by specifying an equals sign followed by their
+nick. This '=' convention works with most commands.
+<p>
+<strong>Syntax:</strong> <tt>INFO &lt;nickname&gt;</tt><br>
+<strong>Syntax:</strong> <tt>INFO =&lt;online user&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ INFO w00t</tt>
+Shows information about the registered nick w00t.
+<br><tt>/msg NickServ INFO =w00tie[home]</tt>
+Shows information about the registered nick the user
+w00tie[home] is logged in as.
+<a name="LIST"><h2>LIST</h2></a>
+<p>
+LIST shows registered users that match the given criteria.
+Multiple criteria may be used in the same command.
+<p>
+Current criteria are:
+PATTERN       - All users that match a given pattern.
+EMAIL         - All accounts registered with an email address
+<br><tt>            that matches a given pattern.</tt>
+MARK-REASON   - All accounts whose mark reason matches a
+<br><tt>            given pattern.</tt>
+FROZEN-REASON - All frozen accounts whose freeze reason matches
+<br><tt>            a given pattern.</tt>
+RESTRICTED-REASON - All restricted accounts whose restrict reason matches
+<br><tt>            a given pattern.</tt>
+HOLD          - All users with the HOLD flag set.
+NOOP          - All users with the NOOP flag set.
+NEVEROP       - All users with the NEVEROP flag set.
+WAITAUTH      - All users with the WAITAUTH flag set.
+HIDEMAIL      - All users with the HIDEMAIL flag set.
+NOMEMO        - All users with the NOMEMO flag set.
+EMAILMEMOS    - All users with the EMAILMEMOS flag set.
+USE-PRIVMSG   - All users with the USEPRIVMSG flag set.
+QUIETCHG      - All users with the QUIETCHG flag set.
+NOGREET       - All users with the NOGREET flag set.
+PRIVATE       - All users with the PRIVATE flag set.
+REGNOLIMIT    - All users with the REGNOLIMIT flag set.
+<p>
+FROZEN        - All users frozen by network staff.
+MARKED        - All users marked by network staff.
+RESTRICTED    - All users restricted by network staff.
+REGISTERED    - User accounts registered longer ago than a given age.
+LASTLOGIN     - User accounts last used longer ago than a given age.
+<p>
+<strong>Syntax:</strong> <tt>LIST &lt;criteria&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ LIST pattern foo*</tt>
+<br><tt>/msg NickServ LIST hold</tt>
+<br><tt>/msg NickServ LIST frozen pattern x*</tt>
+<br><tt>/msg NickServ LIST registered 30d</tt>
+<br><tt>/msg NickServ LIST marked registered 7d pattern bar</tt>
+<br><tt>/msg NickServ LIST email *@gmail.com</tt>
+<br><tt>/msg NickServ LIST mark-reason *lamer*</tt>
+<a name="LISTCHANS"><h2>LISTCHANS</h2></a>
+<p>
+LISTCHANS shows the channels that you have access
+to, including those that you own.
+<p>
+AKICKs and host-based access are not shown.
+<p>
+<strong>Syntax:</strong> <tt>LISTCHANS</tt><br>
+<p>
+Operators with chan:auspex privilege can also
+check another user's access.
+<p>
+<strong>Syntax:</strong> <tt>LISTCHANS &lt;nick&gt;</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ LISTCHANS</tt>
+<a name="LISTGROUPS"><h2>LISTGROUPS</h2></a>
+<p>
+LISTGROUPS shows the groups that you have access
+to, including those that you own.
+<p>
+Group BANs are not shown.
+<p>
+<strong>Syntax:</strong> <tt>LISTGROUPS</tt><br>
+<p>
+Operators with group:auspex privilege can also
+check another user's access.
+<p>
+<strong>Syntax:</strong> <tt>LISTGROUPS &lt;nick&gt;</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ LISTGROUPS</tt>
+<a name="LISTMAIL"><h2>LISTMAIL</h2></a>
+<p>
+LISTMAIL shows accounts registered to a
+given e-mail address. Wildcards are allowed.
+<p>
+<strong>Syntax:</strong> <tt>LISTMAIL &lt;email&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ LISTMAIL patrick@example.com</tt>
+<br><tt>/msg NickServ LISTMAIL *@cam.ac.uk</tt>
+<a name="LISTOWNMAIL"><h2>LISTOWNMAIL</h2></a>
+<p>
+LISTOWNMAIL shows accounts registered to
+your account's e-mail address.
+<p>
+<strong>Syntax:</strong> <tt>LISTOWNMAIL</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ LISTOWNMAIL</tt>
+<a name="LISTVHOST"><h2>LISTVHOST</h2></a>
+<p>
+LISTVHOST shows accounts which have a vhost set
+on them. If a pattern is given, only accounts
+with vhosts matching the pattern are shown.
+<p>
+<strong>Syntax:</strong> <tt>LISTVHOST [pattern]</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ LISTVHOST</tt>
+<br><tt>/msg NickServ LISTVHOST *staff*</tt>
+<a name="LOGIN"><h2>LOGIN</h2></a>
+<p>
+LOGIN identifies you with services so that you
+can perform general maintenance and commands that
+require you to be logged in.
+<p>
+<strong>Syntax:</strong> <tt>LOGIN &lt;account&gt; &lt;password&gt;</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ LOGIN smith sesame</tt>
+<a name="LOGOUT"><h2>LOGOUT</h2></a>
+<p>
+LOGOUT logs you out of the account
+that you are currently logged into.
+<p>
+<strong>Syntax:</strong> <tt>LOGOUT</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ LOGOUT</tt>
+<a name="MARK"><h2>MARK</h2></a>
+<p>
+MARK allows operators to attach a note to an account.
+For example, an operator could mark the account of
+a spammer so that others know the user has previously
+been warned.
+<p>
+MARK information will be displayed in INFO output.
+<p>
+<strong>Syntax:</strong> <tt>MARK &lt;nickname&gt; ON|OFF &lt;reason&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ MARK game_boy ON Persistent spammer</tt>
+<br><tt>/msg NickServ MARK nenolod OFF</tt>
+<a name="REGAIN"><h2>REGAIN</h2></a>
+<p>
+REGAIN regains access to your nickname from
+a user that is using your nick.
+<p>
+If you are logged in to the account associated with
+the nickname, you need not specify a password,
+otherwise you have to.
+<p>
+<strong>Syntax:</strong> <tt>REGAIN &lt;nick&gt; [password]</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ REGAIN Dave2 goats</tt>
+<a name="REGISTER"><h2>REGISTER</h2></a>
+<p>
+This will register your current nickname with NickServ.
+This will allow you to assert some form of identity on
+the network and to be added to access lists. Furthermore,
+NickServ will warn users using your nick without
+identifying and allow you to kill ghosts.
+The password is a case-sensitive password that you make
+up. Please write down or memorize your password! You
+will need it later to change settings.
+<p>
+You have to confirm the email address. To do this,
+follow the instructions in the message sent to the email
+address.
+<p>
+<strong>Syntax:</strong> <tt>REGISTER &lt;password&gt; &lt;email-address&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ REGISTER bar foo@bar.com</tt>
+<a name="REGNOLIMIT"><h2>REGNOLIMIT</h2></a>
+<p>
+REGNOLIMIT allows a user to maintain an
+unlimited amount of channel registrations.
+<p>
+<strong>Syntax:</strong> <tt>REGNOLIMIT &lt;user&gt; ON|OFF</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ REGNOLIMIT nenolod ON</tt>
+<a name="RELEASE"><h2>RELEASE</h2></a>
+<p>
+RELEASE removes an enforcer for your nick or
+changes the nick of a user that is using your
+nick.
+<p>
+Enforcers are created when someone uses your
+nick without identifying and prevent all use
+of it.
+<p>
+If you are logged in to the nick, you need not specify
+a password, otherwise you have to.
+<p>
+<strong>Syntax:</strong> <tt>RELEASE &lt;nick&gt; [password]</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ RELEASE smith sesame</tt>
+<a name="RESETPASS"><h2>RESETPASS</h2></a>
+<p>
+RESETPASS sets a random password for the specified
+account.
+<p>
+<strong>Syntax:</strong> <tt>RESETPASS &lt;nickname&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ RESETPASS pfish</tt>
+<a name="RESTRICT"><h2>RESTRICT</h2></a>
+<p>
+RESTRICT allows operators to restrict what an account can and can not do.
+It will currently block a user from grouping nicks, registering a channel,
+requesting a vhost or taking an OFFERed vhost.
+<p>
+This is particularly useful if a user starts abusing these commands.
+<p>
+<strong>Syntax:</strong> <tt>RESTRICT &lt;nickname&gt; ON|OFF &lt;reason&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ RESTRICT game_boy ON Abusing vhost requests</tt>
+<br><tt>/msg NickServ RESTRICT nenolod OFF</tt>
+<a name="RETURN"><h2>RETURN</h2></a>
+<p>
+RETURN resets the specified account
+password, sends it to the email address
+specified and changes account's email address
+to this address. Any current sessions logged
+in to the account are logged out.
+<p>
+<strong>Syntax:</strong> <tt>RETURN &lt;nickname&gt; &lt;e-mail&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ RETURN jdoe john@example.com</tt>
+<a name="SENDPASS"><h2>SENDPASS</h2></a>
+<p>
+SENDPASS emails the password for the specified
+nickname to the corresponding email address.
+SENDPASS emails a key to the email address
+corresponding to the specified nickname
+that can be used to set a new password
+using SETPASS.
+<p>
+<strong>Syntax:</strong> <tt>SENDPASS &lt;nickname&gt;</tt><br>
+<p>
+If the nickname is marked, you can override this
+using the FORCE keyword.
+<p>
+<strong>Syntax:</strong> <tt>SENDPASS &lt;nickname&gt; FORCE</tt><br>
+<p>
+If a key has been emailed but not yet used,
+you can clear it using the CLEAR keyword.
+<p>
+<strong>Syntax:</strong> <tt>SENDPASS &lt;nickname&gt; CLEAR</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ SENDPASS foo</tt>
+<a name="SENDPASS"><h2>SENDPASS</h2></a>
+<p>
+SENDPASS emails a key to the email address
+corresponding to the specified nickname
+that can be used to set a new password
+using SETPASS.
+<p>
+<strong>Syntax:</strong> <tt>SENDPASS &lt;nickname&gt;</tt><br>
+<p>
+If a key has been emailed but not yet used,
+you can clear it using the CLEAR keyword.
+<p>
+<strong>Syntax:</strong> <tt>SENDPASS &lt;nickname&gt; CLEAR</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ SENDPASS foo</tt>
+<a name="SET ACCOUNTNAME"><h2>SET ACCOUNTNAME</h2></a>
+<p>
+SET ACCOUNTNAME allows you to change your account
+name to any nick registered to your account.
+Your account name is used in various places as
+a name for you.
+<p>
+<strong>Syntax:</strong> <tt>SET ACCOUNTNAME &lt;nick&gt;</tt><br>
+<a name="SET EMAIL"><h2>SET EMAIL</h2></a>
+<p>
+SET EMAIL changes the e-mail address
+associated with an account. The e-mail
+address is used for password retrieval.
+<p>
+You may be required to confirm the new
+e-mail address. To confirm the address,
+follow the instructions in the message
+sent to the new address.
+<p>
+<strong>Syntax:</strong> <tt>SET EMAIL &lt;new address&gt;</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ SET EMAIL dan@example.com</tt>
+<a name="SET EMAILMEMOS"><h2>SET EMAILMEMOS</h2></a>
+<p>
+This will forward memos sent to your account
+to the email address listed on your registration.
+<p>
+<strong>Syntax:</strong> <tt>SET EMAILMEMOS [ON|OFF]</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ SET EMAILMEMOS ON</tt>
+<a name="SET ENFORCE"><h2>SET ENFORCE</h2></a>
+<p>
+SET ENFORCE allows you to enable more protection for
+all nicknames registered to your account.
+<p>
+This will automatically change the nick of someone
+who attempts to use it without identifying in time,
+and temporarily block its use, which can be
+removed at your discretion. See help on RELEASE.
+<p>
+<strong>Syntax:</strong> <tt>SET ENFORCE ON|OFF</tt><br>
+<a name="SET ENFORCETIME"><h2>SET ENFORCETIME</h2></a>
+<p>
+SET ENFORCETIME sets how long (in seconds) after someone attempts
+to use one of your nicks they will automatically have their nick
+changed.
+<p>
+This can be set to DEFAULT to return to the network default
+or a number value between 1-180 (seconds).
+<p>
+<strong>Syntax:</strong> <tt>SET ENFORCETIME TIME|DEFAULT</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ SET ENFORCETIME DEFAULT</tt>
+<br><tt>/msg NickServ SET ENFORCETIME 90</tt>
+<br><tt>/msg NickServ SET ENFORCETIME 3</tt>
+<a name="SET HIDEMAIL"><h2>SET HIDEMAIL</h2></a>
+<p>
+SET HIDEMAIL prevents an account's e-mail address
+from being shown to other users.
+<p>
+<strong>Syntax:</strong> <tt>SET HIDEMAIL ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ SET HIDEMAIL ON</tt>
+<a name="SET LANGUAGE"><h2>SET LANGUAGE</h2></a>
+<p>
+SET LANGUAGE changes the language services
+uses to communicate with you.
+<p>
+<strong>Syntax:</strong> <tt>SET LANGUAGE &lt;abbreviation&gt;</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ SET LANGUAGE en</tt>
+<br><tt>/msg NickServ SET LANGUAGE ru</tt>
+<a name="SET NEVERGROUP"><h2>SET NEVERGROUP</h2></a>
+<p>
+SET NEVERGROUP prevents others from adding you to
+group access lists.
+<p>
+<strong>Syntax:</strong> <tt>SET NEVERGROUP ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ SET NEVERGROUP ON</tt>
+<a name="SET NEVEROP"><h2>SET NEVEROP</h2></a>
+<p>
+SET NEVEROP prevents others from adding you to
+channel access lists.
+<p>
+<strong>Syntax:</strong> <tt>SET NEVEROP ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ SET NEVEROP ON</tt>
+<a name="SET NOGREET"><h2>SET NOGREET</h2></a>
+<p>
+This setting allows you to opt-out of channel greeting notices.
+<p>
+<strong>Syntax:</strong> <tt>SET NOGREET ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ SET NOGREET ON</tt>
+<a name="SET NOMEMO"><h2>SET NOMEMO</h2></a>
+<p>
+This prevents people from being able to send you
+a memo. If you do not want to receive memos, you
+can just turn them off for your nick.
+<p>
+<strong>Syntax:</strong> <tt>SET NOMEMO ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ SET NOMEMO ON</tt>
+<a name="SET NOOP"><h2>SET NOOP</h2></a>
+<p>
+SET NOOP prevents services from automatically
+opping you in channels you have access in.
+You can choose to op/voice yourself by using
+the OP and VOICE commands.
+<p>
+<strong>Syntax:</strong> <tt>SET NOOP ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ SET NOOP ON</tt>
+<a name="SET PASSWORD"><h2>SET PASSWORD</h2></a>
+<p>
+SET PASSWORD changes the password of an account.
+<p>
+<strong>Syntax:</strong> <tt>SET PASSWORD &lt;new password&gt;</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ SET PASSWORD swordfish</tt>
+<a name="SET PRIVATE"><h2>SET PRIVATE</h2></a>
+<p>
+SET PRIVATE hides various information about your
+account from other users.
+<p>
+SET PRIVATE ON automatically enables HIDEMAIL too.
+<p>
+<strong>Syntax:</strong> <tt>SET PRIVATE ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ SET PRIVATE ON</tt>
+<a name="SET PRIVMSG"><h2>SET PRIVMSG</h2></a>
+<p>
+SET PRIVMSG causes Services to use private messages
+when talking to the user authenticated on this account.
+<p>
+<strong>Syntax:</strong> <tt>SET PRIVMSG ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ SET PRIVMSG ON</tt>
+<a name="SET PROPERTY"><h2>SET PROPERTY</h2></a>
+<p>
+SET PROPERTY manipulates metadata
+associated with an account.
+<p>
+To delete a metadata entry, specify
+the name and leave the value blank.
+<p>
+<strong>Syntax:</strong> <tt>SET PROPERTY &lt;name&gt; [value]</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ SET PROPERTY URL http://www.example.com/~jay/</tt>
+<br><tt>/msg NickServ SET PROPERTY SIGN Pisces</tt>
+<br><tt>/msg NickServ SET PROPERTY ICQ</tt>
+<a name="SET QUIETCHG"><h2>SET QUIETCHG</h2></a>
+<p>
+SET QUIETCHG prevents services from automatically
+notifying you when ChanServ is used to affect your
+status in channels. When set to ON, Services will no
+longer send you messages of this nature.
+<p>
+<strong>Syntax:</strong> <tt>SET QUIETCHG ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ SET QUIETCHG ON</tt>
+<a name="SETPASS"><h2>SETPASS</h2></a>
+<p>
+SETPASS allows you to set a new password
+using a key emailed to you. The key is
+valid for one time only, and also becomes
+invalid if you identify with your old password.
+<p>
+To set a new password if you know the current
+password, use SET PASSWORD instead of SETPASS.
+<p>
+<strong>Syntax:</strong> <tt>SETPASS &lt;nickname&gt; &lt;key&gt; &lt;password&gt;</tt><br>
+<a name="STATUS"><h2>STATUS</h2></a>
+<p>
+STATUS returns information about your current
+state. It will show information about your
+nickname, IRC operator, and SRA status.
+<p>
+<strong>Syntax:</strong> <tt>STATUS</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ STATUS</tt>
+<a name="TAXONOMY"><h2>TAXONOMY</h2></a>
+<p>
+The taxonomy command lists metadata information associated
+with registered users.
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ TAXONOMY foo</tt>
+<a name="UNGROUP"><h2>UNGROUP</h2></a>
+<p>
+UNGROUP unregisters the given nickname from your
+account. The nickname will be available for others to
+register. This will not affect your channel access
+or memos.
+<p>
+If you do not specify a nickname, your current
+nickname will be ungrouped. You cannot ungroup
+your account name.
+<p>
+<strong>Syntax:</strong> <tt>UNGROUP [nickname]</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ UNGROUP SomeNick</tt>
+<a name="VACATION"><h2>VACATION</h2></a>
+<p>
+VACATION extends the expiration time for your
+account and nicknames (but not your channels)
+to three times the usual value. You can only
+do this if your account is registered long
+enough.
+<p>
+Vacation mode is disabled automatically the
+next time you identify to NickServ.
+<p>
+<strong>Syntax:</strong> <tt>VACATION</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ VACATION</tt>
+<a name="VERIFY"><h2>VERIFY</h2></a>
+<p>
+VERIFY confirms a change associated with
+your account registration.
+<p>
+<strong>Syntax:</strong> <tt>VERIFY &lt;operation&gt; &lt;nickname&gt; &lt;key&gt;</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg NickServ VERIFY REGISTER jenny 161803399</tt>
+<br><tt>/msg NickServ VERIFY EMAILCHG Aeriana 271828183</tt>
+<a name="VHOST"><h2>VHOST</h2></a>
+<p>
+VHOST allows operators to set a virtual host (also
+known as a spoof or cloak) on an account. This vhost
+will be set on the user immediately and each time
+they identify.
+<p>
+<strong>Syntax:</strong> <tt>VHOST &lt;nickname&gt; ON &lt;vhost&gt;</tt><br>
+<strong>Syntax:</strong> <tt>VHOST &lt;nickname&gt; OFF</tt><br>
+<p>
+If the nickname is marked, you can override this
+using the FORCE keyword.
+<p>
+<strong>Syntax:</strong> <tt>VHOST &lt;nickname&gt; ON &lt;vhost&gt; FORCE</tt><br>
+<strong>Syntax:</strong> <tt>VHOST &lt;nickname&gt; OFF FORCE</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg NickServ VHOST spb ON may.explode.on.impact</tt>
+<br><tt>/msg NickServ VHOST nenolod OFF</tt>
+</body></html>

@@ -1,0 +1,70 @@
+<html><head><title>Atheme help - InfoServ</title>
+<meta name="generator" content="atheme html_helpfiles.sh">
+</head><body>
+</head><body>
+<h1>InfoServ</h1>
+<a name="DEL"><h2>DEL</h2></a>
+<p>
+DEL is used to delete informational messages that you no longer
+want users to see on connect. This will not allow you to delete
+oper InfoServ messages.
+<p>
+<strong>Syntax:</strong> <tt>DEL &lt;id&gt;</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg InfoServ DEL 1</tt>
+<a name="LIST"><h2>LIST</h2></a>
+<p>
+LIST allows you to view all informational messages in the database.
+These messages will also be sent to all users on connect.
+<p>
+<strong>Syntax:</strong> <tt>LIST</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg InfoServ LIST</tt>
+<a name="ODEL"><h2>ODEL</h2></a>
+<p>
+ODEL is used to delete informational messages that you no longer
+want opers to see upon oper-up. This will not allow you to delete
+user InfoServ messages.
+<p>
+<strong>Syntax:</strong> <tt>ODEL &lt;id&gt;</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg InfoServ ODEL 1</tt>
+<a name="OLIST"><h2>OLIST</h2></a>
+<p>
+LIST allows you to view all oper informational messages in the database.
+These messages will also be sent to all opers upon oper-up.
+This command will not list user informational messages, use LIST for that.
+<p>
+<strong>Syntax:</strong> <tt>OLIST</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg InfoServ OLIST</tt>
+<a name="POST"><h2>POST</h2></a>
+<p>
+POST allows you to post one-time messages to all users (that will be sent when
+you run the command) or messages that all users will see upon connect or
+messages only opers will see when they oper-up.
+<p>
+Underscores ("_") in the subject will be replaced by spaces.
+<p>
+IMPORTANCE:
+<br><tt>Importance defines the type of message that will be sent.</tt>
+<p>
+<br><tt>0 - Only display to opers upon oper-up.</tt>
+<br><tt>1 - Only display to users upon connect.</tt>
+<br><tt>2 - Send a notice to all users now.</tt>
+<br><tt>3 - Display message to all users upon connect AND send a notice to</tt>
+<br><tt>        all users now.</tt>
+<br><tt>4 - Send a privmsg/query to all users now. It is important to note that this</tt>
+<br><tt>        may annoy users and should only be used when absolutely necessary.</tt>
+<p>
+<p>
+<strong>Syntax:</strong> <tt>POST &lt;importance&gt; &lt;subject&gt; &lt;message&gt;</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg InfoServ POST 2 Info1 Some important information for users.</tt>
+<br><tt>/msg InfoServ POST 1 Multi_Word_Subject Some more information.</tt>
+</body></html>

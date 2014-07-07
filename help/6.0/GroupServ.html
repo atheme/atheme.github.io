@@ -1,0 +1,182 @@
+<html><head><title>Atheme help - GroupServ</title>
+<meta name="generator" content="atheme html_helpfiles.sh">
+</head><body>
+</head><body>
+<h1>GroupServ</h1>
+<a name="ACSNOLIMIT"><h2>ACSNOLIMIT</h2></a>
+<p>
+ACSNOLIMIT allows a group to have a unlimited number of
+group access list entries.
+<p>
+<strong>Syntax:</strong> <tt>ACSNOLIMIT &lt;!group&gt; ON|OFF</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg GroupServ ACSNOLIMIT !awesome-people ON</tt>
+<a name="DROP"><h2>DROP</h2></a>
+<p>
+DROP allows you to "unregister" a registered group.
+<p>
+Once you DROP a group all of the data associated
+with it (access lists, metadata, etc) are removed and cannot
+be restored.
+<p>
+See help on FLAGS for transferring a group to another user.
+<p>
+<strong>Syntax:</strong> <tt>DROP &lt;!group&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg GroupServ DROP !baz</tt>
+<a name="FDROP"><h2>FDROP</h2></a>
+<p>
+FDROP allows you to "unregister" a registered group.
+<p>
+Once you FDROP a group all of the data associated
+with it (access lists, metadata, etc) are removed and cannot
+be restored.
+<p>
+<strong>Syntax:</strong> <tt>FDROP &lt;!group&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg GroupServ FDROP !baz</tt>
+<a name="FLAGS"><h2>FLAGS</h2></a>
+<p>
+The FLAGS command allows for the granting/removal of group
+privileges on a more specific, non-generalized level. It
+supports registered nicknames as targets.
+<p>
+When only the group argument is given, a listing of
+permissions granted to users will be displayed.
+<p>
+<strong>Syntax:</strong> <tt>FLAGS &lt;!group&gt;</tt><br>
+<p>
+You can modify a users' flags if you yourself have the +f flag.
+This has much the same syntax as chanserv/flags, using + to add
+flags to a user and - to remove flags from a user.
+<p>
+<strong>Syntax:</strong> <tt>FLAGS &lt;!group&gt; [nickname flag_changes]</tt><br>
+<p>
+Permissions:
+<br><tt>+f - Enables modification of group access list.</tt>
+<br><tt>+F - Grants full founder access.</tt>
+<br><tt>+m - Read memos sent to the group.</tt>
+<br><tt>+c - Have channel access in channels where the group has sufficient</tt>
+<br><tt>     privileges.</tt>
+<br><tt>+v - Take vhosts offered to the group through HostServ.</tt>
+<p>
+The special permission +* adds all permissions except +F.
+The special permission -* removes all permissions including +F.
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg GroupServ FLAGS !baz</tt>
+<br><tt>/msg GroupServ FLAGS !baz foo +F</tt>
+<br><tt>/msg GroupServ FLAGS !baz foo -*</tt>
+<br><tt>/msg GroupServ FLAGS !baz foo +fmc</tt>
+<a name="INFO"><h2>INFO</h2></a>
+<p>
+INFO displays group information such as
+registration time, group URL, email address
+and founder.
+<p>
+<strong>Syntax:</strong> <tt>INFO &lt;!group&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg GroupServ INFO !baz</tt>
+<a name="JOIN"><h2>JOIN</h2></a>
+<p>
+JOIN allows you to join a group set as open for anyone to
+join. No privileges will be set on you when you join a group
+this way, you will only be listed as a group member.
+<p>
+<strong>Syntax:</strong> <tt>JOIN &lt;!group&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg GroupServ JOIN !baz</tt>
+<a name="LIST"><h2>LIST</h2></a>
+<p>
+LIST shows all groups currently registered.
+<p>
+<strong>Syntax:</strong> <tt>LIST</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg GroupServ LIST</tt>
+<a name="REGISTER"><h2>REGISTER</h2></a>
+<p>
+REGISTER allows you to register a group so that you can easily
+manage a number of users and channels.
+<p>
+<strong>Syntax:</strong> <tt>REGISTER &lt;!group&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg GroupServ REGISTER !developers</tt>
+<a name="REGNOLIMIT"><h2>REGNOLIMIT</h2></a>
+<p>
+REGNOLIMIT allows a group to collectively maintain an
+unlimited amount of channel registrations.
+<p>
+<strong>Syntax:</strong> <tt>REGNOLIMIT &lt;!group&gt; ON|OFF</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg GroupServ REGNOLIMIT !awesome-people ON</tt>
+<a name="SET CHANNEL"><h2>SET CHANNEL</h2></a>
+<p>
+SET CHANNEL allows you to change or set the official IRC channel 
+of a group. This is shown when a user requests info about the group.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;!group&gt; CHANNEL [#channel]</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg GroupServ SET !atheme CHANNEL #atheme</tt>
+<a name="SET DESCRIPTION"><h2>SET DESCRIPTION</h2></a>
+<p>
+SET DESCRIPTION allows you to change or set the description
+of a group. This is shown when a user requests info about
+the group.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;!group&gt; DESCRIPTION [description]</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg GroupServ SET !atheme DESCRIPTION Official Atheme Group</tt>
+<a name="SET EMAIL"><h2>SET EMAIL</h2></a>
+<p>
+SET EMAIL allows you to change or set the email
+address associated with a group. This is shown
+to all users in INFO.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;!group&gt; EMAIL [email]</tt><br>
+<p>
+Using the command in this way results in an email
+address being associated with the group.
+<p>
+<strong>Example:</strong>
+<br><tt>/msg GroupServ SET !bar EMAIL some@email.address</tt>
+<p>
+<a name="SET OPEN"><h2>SET OPEN</h2></a>
+<p>
+SET OPEN allows a group to be open to any user joining
+whenever they like. Users that JOIN the group will have
+no privileges by default.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;!group&gt; OPEN &lt;ON|OFF&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg GroupServ SET !awesome-people OPEN ON</tt>
+<a name="SET PUBLIC"><h2>SET PUBLIC</h2></a>
+<p>
+SET PUBLIC shows group membership when users request NickServ
+INFO of members of the group.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;!group&gt; PUBLIC &lt;ON|OFF&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg GroupServ SET !awesome-people PUBLIC ON</tt>
+<a name="SET URL"><h2>SET URL</h2></a>
+<p>
+SET URL allows you to change or set the URL
+associated with a group. This is shown
+to all users in INFO.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;!group&gt; URL [url]</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg GroupServ SET !slashdot URL http://slashdot.org</tt>
+</body></html>

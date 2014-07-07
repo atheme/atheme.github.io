@@ -1,0 +1,106 @@
+<html><head><title>Atheme help - MemoServ</title>
+<meta name="generator" content="atheme html_helpfiles.sh">
+</head><body>
+</head><body>
+<h1>MemoServ</h1>
+<a name="DELETE"><h2>DELETE</h2></a>
+<p>
+DELETE allows you to delete memos from your
+inbox. You can delete all memos with the
+<b>ALL</b> parameter, all read memos with the <b>OLD</b>
+parameter, or specify a memo number.
+<p>
+You can obtain a memo number by using the LIST
+command. Once you delete a memo, the numbers of
+all subsequent memos will change.
+<p>
+You can also SEND, READ, LIST and FORWARD memos.
+<p>
+<strong>Syntax:</strong> <tt>DELETE ALL|OLD|&lt;memo number&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg MemoServ DELETE OLD</tt>
+<br><tt>/msg MemoServ DELETE 1</tt>
+<a name="FORWARD"><h2>FORWARD</h2></a>
+<p>
+FORWARD allows you to forward a memo to another
+account. Useful for a variety of reasons.
+<p>
+You can also SEND, DELETE, LIST or READ memos.
+<p>
+<strong>Syntax:</strong> <tt>FORWARD &lt;user|nick&gt; &lt;memo number&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg MemoServ FORWARD kog 1</tt>
+<a name="IGNORE"><h2>IGNORE</h2></a>
+<p>
+IGNORE allows you to ignore memos from another
+user. Possible reasons include inbox spamming,
+annoying users, bots that have figured out how
+to register etc.
+<p>
+You can add up to 40 users to your ignore list
+<p>
+<strong>Syntax:</strong> <tt>IGNORE ADD|DEL|LIST|CLEAR &lt;account&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg MemoServ IGNORE ADD kog</tt>
+<br><tt>/msg MemoServ IGNORE DEL kog</tt>
+<br><tt>/msg MemoServ IGNORE LIST</tt>
+<br><tt>/msg MemoServ IGNORE CLEAR</tt>
+<a name="LIST"><h2>LIST</h2></a>
+<p>
+LIST shows you your memos in your inbox,
+including who sent them and when. To read a
+memo, use the READ command. You can also
+DELETE or FORWARD a memo.
+<p>
+<strong>Syntax:</strong> <tt>LIST</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg MemoServ LIST</tt>
+<a name="READ"><h2>READ</h2></a>
+<p>
+READ allows you to read a memo that another
+user has sent you. You can either read a memo
+by number or read your new memos.
+<p>
+<strong>Syntax:</strong> <tt>READ &lt;memo number&gt;</tt><br>
+<strong>Syntax:</strong> <tt>READ NEW</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg MemoServ READ 1</tt>
+<a name="SEND"><h2>SEND</h2></a>
+<p>
+SEND allows you to send a memo to a nickname
+that is offline at the moment.  When they
+come online they will be told they have messages
+waiting for them and will have an opportunity
+to read your memo.
+<p>
+Your memo cannot be more than 300 characters.
+<p>
+<strong>Syntax:</strong> <tt>SEND &lt;user|nick&gt; text</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg MemoServ SEND Kog pay your bills</tt>
+<a name="SENDGROUP"><h2>SENDGROUP</h2></a>
+<p>
+SENDGROUP allows you to send a memo to all members
+of a group who have the +m flag.
+<p>
+<strong>Syntax:</strong> <tt>SENDGROUP &lt;!group&gt; &lt;text&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg MemoServ SENDGROUP !opers beware of badguy</tt>
+<a name="SENDOPS"><h2>SENDOPS</h2></a>
+<p>
+SENDOPS allows you to send a memo to all ops
+on a channel. Only users allowed to view the
+access list can do this.
+<p>
+<strong>Syntax:</strong> <tt>SENDOPS &lt;#channel&gt; &lt;text&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg MemoServ SENDOPS #chat beware of badguy</tt>
+</body></html>

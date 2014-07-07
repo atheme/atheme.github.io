@@ -1,0 +1,1034 @@
+<html><head><title>Atheme help - ChanServ</title>
+<meta name="generator" content="atheme html_helpfiles.sh">
+</head><body>
+</head><body>
+<h1>ChanServ</h1>
+<a name="ACCESS ADD"><h2>ACCESS ADD</h2></a>
+<p>
+ACCESS ADD will assign the given user to the given
+channel role.
+<p>
+<strong>Syntax:</strong> <tt>ACCESS &lt;#channel&gt; ADD &lt;user&gt; &lt;role&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ ACCESS #atheme ADD stitch helpers</tt>
+<a name="ACCESS DEL"><h2>ACCESS DEL</h2></a>
+<p>
+ACCESS DEL will remove all channel access from a given user.
+<p>
+<strong>Syntax:</strong> <tt>ACCESS &lt;#channel&gt; DEL &lt;user&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ ACCESS #atheme DEL stitch</tt>
+<a name="ACCESS INFO"><h2>ACCESS INFO</h2></a>
+<p>
+ACCESS INFO displays what level of access a given user has
+in a given channel. It will display role, long-form flags
+and short-form flags along with the last date the user's
+access was modified.
+<p>
+<strong>Syntax:</strong> <tt>ACCESS &lt;#channel&gt; INFO &lt;user&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ ACCESS #atheme INFO nenolod</tt>
+<a name="ACCESS LIST"><h2>ACCESS LIST</h2></a>
+<p>
+ACCESS LIST lists all users with channel access and their
+roles in the channel. It uses fuzzy matching so if a user
+does not exactly match any role, they will be listed as
+the closest role they match.
+<p>
+<strong>Syntax:</strong> <tt>ACCESS &lt;#channel&gt; LIST</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ ACCESS #atheme LIST</tt>
+<a name="ACCESS SET"><h2>ACCESS SET</h2></a>
+<p>
+ACCESS SET will change the given user's role to the given
+channel role.
+<p>
+<strong>Syntax:</strong> <tt>ACCESS &lt;#channel&gt; SET &lt;user&gt; &lt;role&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ ACCESS #atheme SET stitch lowlevel-staff</tt>
+<a name="AKICK"><h2>AKICK</h2></a>
+<p>
+The AKICK command allows you to maintain channel
+ban lists.  Users on the AKICK list will be
+automatically kickbanned when they join the channel,
+removing any matching ban exceptions first. Users
+with the +r flag are exempt.
+<p>
+<strong>Syntax:</strong> <tt>AKICK &lt;#channel&gt; ADD &lt;nickname|hostmask&gt; [!P|!T &lt;minutes&gt;] [reason]</tt><br>
+<p>
+You may also specify a hostmask (nick!user@host)
+for the AKICK list.
+<p>
+The reason is used when kicking and is visible in
+AKICK LIST. If the reason contains a '|' character,
+everything after it does not appear in kick reasons
+but does appear in AKICK LIST.
+<p>
+If the !P token is specified, the AKICK will never
+expire (permanent). If the !T token is specified, expire
+time must follow, in minutes, hours ("h"), days ("d")
+or weeks ("w").
+<p>
+<strong>Syntax:</strong> <tt>AKICK &lt;#channel&gt; DEL &lt;nickname|hostmask&gt;</tt><br>
+<p>
+This will remove an entry from the AKICK list. Removing
+an entry will remove any matching channel bans unless the
+channel is set NOSYNC.
+<p>
+<strong>Syntax:</strong> <tt>AKICK &lt;#channel&gt; LIST</tt><br>
+<p>
+This will list all entries in the AKICK list, including
+the reason and time left until expiration.
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ AKICK #foo ADD bar you are annoying | private op info</tt>
+<br><tt>/msg ChanServ AKICK #foo ADD *!*foo@bar.com !T 5d</tt>
+<br><tt>/msg ChanServ AKICK #foo DEL bar</tt>
+<br><tt>/msg ChanServ AKICK #foo LIST</tt>
+<a name="BAN"><h2>BAN</h2></a>
+<p>
+The BAN command allows you to ban a user or hostmask from
+a channel.
+<p>
+<strong>Syntax:</strong> <tt>BAN &lt;#channel&gt; &lt;nickname|hostmask&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ BAN #chat carnell</tt>
+<br><tt>/msg ChanServ BAN #chat *!*@*.ipt.aol.com</tt>
+<a name="CLEAR BANS"><h2>CLEAR BANS</h2></a>
+<p>
+Clear bans will remove all bans found in a specific
+channel. If your ircd supports other lists associated
+with a channel (e.g. ban exceptions), you can clear
+these by specifying the mode letters. Specify an
+asterisk to clear all lists.
+<p>
+<strong>Syntax:</strong> <tt>CLEAR &lt;#channel&gt; BANS [types]</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ CLEAR #support BANS</tt>
+<p>
+Clears #support ban list.
+<p>
+<br><tt>/msg ChanServ CLEAR #support BANS eI</tt>
+<p>
+Removes all ban and invite exceptions on #support
+(if your ircd supports them).
+<p>
+<br><tt>/msg ChanServ CLEAR #support BANS *</tt>
+<p>
+Clears all lists of #support.
+<p>
+<br><tt>/msg ChanServ CLEAR #support BANS +</tt>
+<p>
+Shows the possible letters.
+<a name="CLEAR FLAGS"><h2>CLEAR FLAGS</h2></a>
+<p>
+CLEAR FLAGS will kick remove all flags from all users
+(or groups) with channel access on the channel specified
+except for users who are channel founders.
+<p>
+This command can only be used by channel founders.
+<p>
+<strong>Syntax:</strong> <tt>CLEAR &lt;#channel&gt; FLAGS</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ CLEAR #atheme FLAGS</tt>
+<a name="CLEAR USERS"><h2>CLEAR USERS</h2></a>
+<p>
+Clear users will kick all users out of the channel,
+except you. The channel will be cycled (recreated)
+if you are not on it.
+<p>
+If a reason is specified, it will be included in the
+kick message.
+<p>
+<strong>Syntax:</strong> <tt>CLEAR &lt;#channel&gt; USERS [reason]</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ CLEAR #ChatZone USERS</tt>
+<a name="CLONE"><h2>CLONE</h2></a>
+<p>
+CLONE copies a channel's chanacs and metadata
+to a new channel. Both channels must be registered
+with ChanServ and you must be founder in the target
+channel for this command to work.
+<p>
+It will not copy the topic as most people will
+want that different between the 2 channels.
+<p>
+It will also remove all chanacs (except founders)
+and metadata of the same type from the target
+channel.
+<p>
+<strong>Syntax:</strong> <tt>CLONE &lt;#source-channel&gt; &lt;#target-channel&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ CLONE #funstuff #morefun</tt>
+<a name="CLOSE"><h2>CLOSE</h2></a>
+<p>
+CLOSE prevents a channel from being used. Anyone
+who enters is immediately kickbanned. The channel
+cannot be dropped and foundership cannot be
+transferred.
+<p>
+Enabling CLOSE will immediately kick all
+users from the channel.
+<p>
+Use CLOSE OFF to reopen a channel. While closed,
+channels will still expire.
+<p>
+<strong>Syntax:</strong> <tt>CLOSE &lt;#channel&gt; ON|OFF [reason]</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ CLOSE #lamers ON spamming</tt>
+<br><tt>/msg ChanServ CLOSE #spiderslair OFF</tt>
+<a name="COUNT"><h2>COUNT</h2></a>
+<p>
+This will give a count of how many entries are in each of
+the channel's xOP lists and how many entries on the access
+list do not match a xOP value.
+<p>
+The second line shows how many access entries have each flag.
+<p>
+<strong>Syntax:</strong> <tt>COUNT &lt;#channel&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ COUNT #oscn</tt>
+<a name="DROP"><h2>DROP</h2></a>
+<p>
+DROP allows you to "unregister" a registered channel.
+<p>
+Once you DROP a channel all of the data associated
+with it (access lists, etc) are removed and cannot
+be restored.
+<p>
+See help on SET FOUNDER and FLAGS for transferring
+a channel to another user.
+<p>
+<strong>Syntax:</strong> <tt>DROP &lt;#channel&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ DROP #foo</tt>
+<a name="FDROP"><h2>FDROP</h2></a>
+<p>
+FDROP allows dropping any registered channel,
+provided it is not set held (see help on HOLD).
+<p>
+Once you FDROP a channel all of the data associated
+with it (access lists, etc) are removed and cannot
+be restored.
+<p>
+<strong>Syntax:</strong> <tt>FDROP &lt;#channel&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ FDROP #foo</tt>
+<a name="FFLAGS"><h2>FFLAGS</h2></a>
+<p>
+The FFLAGS command allows an oper to force a flags
+change on a channel. The syntax is the same as FLAGS,
+except that the target and flags changes must be given.
+Viewing any channel's access list is done with FLAGS.
+<p>
+<strong>Syntax:</strong> <tt>FFLAGS &lt;#channel&gt; &lt;nickname|hostmask&gt; &lt;template&gt;</tt><br>
+<strong>Syntax:</strong> <tt>FFLAGS &lt;#channel&gt; &lt;nickname|hostmask&gt; &lt;flag_changes&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ FFLAGS #foo foo AOP</tt>
+<a name="FLAGS"><h2>FLAGS</h2></a>
+<p>
+The FLAGS command allows for the granting/removal of channel
+privileges on a more specific, non-generalized level. It
+supports nicknames, groups and hostmasks as targets.
+<p>
+When only the channel argument is given, a listing of
+permissions granted to users will be displayed.
+<p>
+<strong>Syntax:</strong> <tt>FLAGS &lt;#channel&gt;</tt><br>
+<p>
+Otherwise, an access entry is modified. A modification may be
+specified by a template name (changes the access to the
+template) or a flags change (starts with + or -). See the
+TEMPLATE help entry for more information about templates.
+<p>
+If you are not a founder, you may only manipulate flags you
+have yourself, and may not edit users that have flags you
+don't have. For this purpose, +v grants +V, +o grants +O
+and +r grants +b.
+If you are not a founder, you may only manipulate flags you
+have yourself, and may not edit users that have flags you
+don't have. For this purpose, +v grants +V, +h grants +H,
++o grants +O and +r grants +b.
+<p>
+If the LIMITFLAGS option is set for the channel, this is
+restricted further, see help for SET LIMITFLAGS.
+<p>
+<p>
+As of Atheme 7.0, there are now extended entity targets
+which allow you to match chanacs against a situation instead
+of against a nickname, hostmask or group.
+<p>
+Available exttargets are:
+$oper - Any user who is an oper (user mode +o).
+$registered - Any user who is identified to services.
+$channel:#channel - Any user who is the member of the given channel.
+<p>
+If you do not have +f you may still remove your own access
+with -*.
+<p>
+<strong>Syntax:</strong> <tt>FLAGS &lt;#channel&gt; [nickname|hostmask|group template]</tt><br>
+<strong>Syntax:</strong> <tt>FLAGS &lt;#channel&gt; [nickname|hostmask|group flag_changes]</tt><br>
+<p>
+Permissions:
+<br><tt>+v - Enables use of the voice/devoice commands.</tt>
+<br><tt>+V - Enables automatic voice.</tt>
+<br><tt>+h - Enables use of the halfop/dehalfop commands.</tt>
+<br><tt>+H - Enables automatic halfop.</tt>
+<br><tt>+o - Enables use of the op/deop commands.</tt>
+<br><tt>+O - Enables automatic op.</tt>
+<br><tt>+a - Enables use of the protect/deprotect commands.</tt>
+<br><tt>+q - Enables use of the owner/deowner commands.</tt>
+<br><tt>+s - Enables use of the set command.</tt>
+<br><tt>+i - Enables use of the invite and getkey commands.</tt>
+<br><tt>+r - Enables use of the kick, kickban, ban and unban commands.</tt>
+<br><tt>+r - Enables use of the ban and unban commands.</tt>
+<br><tt>+r - Enables use of the unban command.</tt>
+<br><tt>+R - Enables use of the recover and clear commands.</tt>
+<br><tt>+f - Enables modification of channel access lists.</tt>
+<br><tt>+t - Enables use of the topic and topicappend commands.</tt>
+<br><tt>+A - Enables viewing of channel access lists.</tt>
+<br><tt>+S - Marks the user as a successor.</tt>
+<br><tt>+F - Grants full founder access.</tt>
+<br><tt>+b - Enables automatic kickban.</tt>
+<p>
+The special permission +* adds all permissions except +b, +S, and +F.
+The special permission +* adds all permissions except +b and +F.
+The special permission -* removes all permissions including +b and +F.
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ FLAGS #foo</tt>
+<br><tt>/msg ChanServ FLAGS #foo foo!*@bar.com VOP</tt>
+<br><tt>/msg ChanServ FLAGS #foo foo!*@bar.com -V+oO</tt>
+<br><tt>/msg ChanServ FLAGS #foo foo!*@bar.com -*</tt>
+<br><tt>/msg ChanServ FLAGS #foo foo +oOtsi</tt>
+<br><tt>/msg ChanServ FLAGS #foo TroubleUser!*@*.troubleisp.net +b</tt>
+<br><tt>/msg ChanServ FLAGS #foo !baz +*</tt>
+<a name="FORCEXOP"><h2>FORCEXOP</h2></a>
+<p>
+FORCEXOP resets all channel access levels to
+xOP compatible values. That is, after the
+operation, the founder(s) will have all permissions
+and autoop and everyone else on with flags
+will be on one of the xOP lists. This command
+is useful if the definitions for which flags
+each xOP level gives change and the founder
+wishes to use xOP commands only.
+<p>
+Only a founder can execute this command.
+<p>
+<strong>Syntax:</strong> <tt>FORCEXOP &lt;#channel&gt;</tt><br>
+<p>
+See also: SOP, AOP, HOP, VOP
+See also: SOP, AOP, VOP
+<a name="FTRANSFER"><h2>FTRANSFER</h2></a>
+<p>
+FTRANSFER forcefully transfers foundership
+of a channel.
+<p>
+<strong>Syntax:</strong> <tt>FTRANSFER &lt;#channel&gt; &lt;founder&gt;</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg ChanServ FTRANSFER #casual vodkaswirl</tt>
+<a name="GETKEY"><h2>GETKEY</h2></a>
+<p>
+GETKEY returns the key (+k, password to be allowed in)
+of the specified channel: /join #channel key
+<p>
+<strong>Syntax:</strong> <tt>GETKEY &lt;#channel&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ GETKEY #foo</tt>
+<a name="HALFOP|DEHALFOP"><h2>HALFOP|DEHALFOP</h2></a>
+<p>
+These commands perform status mode changes on a channel.
+<p>
+If you perform an operation on another user, they will be
+notified that you did it.
+<p>
+If the last parameter is omitted the action is performed
+on the person requesting the command.
+<p>
+<strong>Syntax:</strong> <tt>HALFOP|DEHALFOP &lt;#channel&gt; [nickname]</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ HALFOP #foo</tt>
+<a name="HOLD"><h2>HOLD</h2></a>
+<p>
+HOLD prevents a channel from expiring for inactivity.
+Held channels will still expire when there are no
+eligible successors.
+<p>
+<strong>Syntax:</strong> <tt>HOLD &lt;#channel&gt; ON|OFF</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ HOLD #atheme ON</tt>
+<a name="INFO"><h2>INFO</h2></a>
+<p>
+INFO displays channel information such as
+registration time, flags, and other details.
+<p>
+<strong>Syntax:</strong> <tt>INFO &lt;#channel&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ INFO #foo</tt>
+<a name="INVITE"><h2>INVITE</h2></a>
+<p>
+INVITE requests services to invite you to the
+specified channel. This is useful if you use
+the +i channel mode.
+<p>
+<strong>Syntax:</strong> <tt>INVITE &lt;#channel&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ INVITE #foo</tt>
+<a name="KICK"><h2>KICK</h2></a>
+<p>
+The KICK command allows for the removal of a user from
+a channel. The user can immediately rejoin.
+<p>
+Your nick will be added to the kick reason.
+<p>
+<strong>Syntax:</strong> <tt>KICK &lt;#channel&gt; &lt;nick&gt; [reason]</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ KICK #foo abuser</tt>
+<br><tt>/msg ChanServ KICK #foo abuser please stop</tt>
+<a name="KICKBAN"><h2>KICKBAN</h2></a>
+<p>
+The KICKBAN command allows for the removal of a user from
+a channel while placing a ban on the user.
+<p>
+Any matching ban exceptions will be removed.
+<p>
+<strong>Syntax:</strong> <tt>KICKBAN &lt;#channel&gt; &lt;nick&gt; [reason]</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ KICKBAN #foo abuser</tt>
+<br><tt>/msg ChanServ KICKBAN #foo abuser go away</tt>
+<a name="LIST"><h2>LIST</h2></a>
+<p>
+LIST shows channels that match a given criteria.
+Multiple criteria may be used in the same command.
+<p>
+Current Criteria are:
+PATTERN      - All channels that match a given pattern.
+MARK-REASON  - All channels whose mark reason matches
+<br><tt>           a given pattern.</tt>
+CLOSE-REASON - All channels which are closed whose close
+<br><tt>           reason matches a given pattern.</tt>
+HOLD         - All channels with the HOLD flag set.
+NOOP         - All channels with the NOOP flag set.
+LIMITFLAGS   - All channels with the LIMITFLAGS flag set.
+SECURE       - All channels with the SECURE flag set.
+VERBOSE      - All channels with the VERBOSE flag set.
+RESTRICTED   - All channels with the RESTRICTED flag set.
+KEEPTOPIC    - All channels with the KEEPTOPIC flag set.
+VERBOSE-OPS  - All channels set to only be verbose to ops.
+TOPICLOCK    - All channels with the TOPICLOCK flag set.
+GUARD        - All channels with the GUARD flag set.
+PRIVATE      - All channels with the PRIVATE flag set.
+<p>
+CLOSED       - All channels closed by network staff.
+MARKED       - All channels marked by network staff.
+ACLSIZE      - Channels with an access list larger than a given size.
+REGISTERED   - Channels registered longer ago than a given age.
+LASTUSED     - Channels last used longer ago than a given age.
+<p>
+<strong>Syntax:</strong> <tt>LIST &lt;criteria&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ LIST pattern #*foo*</tt>
+<br><tt>/msg ChanServ LIST hold</tt>
+<br><tt>/msg ChanServ LIST closed pattern #x*</tt>
+<br><tt>/msg ChanServ LIST aclsize 10</tt>
+<br><tt>/msg ChanServ LIST registered 30d</tt>
+<br><tt>/msg ChanServ LIST aclsize 20 registered 7d pattern #bar*</tt>
+<br><tt>/msg ChanServ LIST mark-reason lamers?here</tt>
+<a name="MARK"><h2>MARK</h2></a>
+<p>
+MARK allows operators to attach a note to a channel.
+For example, an operator could mark the channel of a
+spammer so that others know it has previously been
+warned.
+<p>
+MARK information will be displayed in INFO output.
+<p>
+<strong>Syntax:</strong> <tt>MARK &lt;#channel&gt; ON|OFF &lt;reason&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ MARK #lobby ON Takeover: returned to bill</tt>
+<a name="OP|DEOP|VOICE|DEVOICE"><h2>OP|DEOP|VOICE|DEVOICE</h2></a>
+<p>
+These commands perform status mode changes on a channel.
+<p>
+If you perform an operation on another user, they will be
+notified that you did it.
+<p>
+If the last parameter is omitted the action is performed
+on the person requesting the command.
+<p>
+<strong>Syntax:</strong> <tt>OP|DEOP &lt;#channel&gt; [nickname]</tt><br>
+<strong>Syntax:</strong> <tt>VOICE|DEVOICE &lt;#channel&gt; [nickname]</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ OP #foo bar</tt>
+<br><tt>/msg ChanServ DEVOICE #foo</tt>
+<a name="OWNER|DEOWNER"><h2>OWNER|DEOWNER</h2></a>
+<p>
+These commands perform status mode changes on a channel.
+<p>
+If you perform an operation on another user, they will be
+notified that you did it.
+<p>
+If the last parameter is omitted the action is performed
+on the person requesting the command.
+<p>
+<strong>Syntax:</strong> <tt>OWNER|DEOWNER &lt;#channel&gt; [nickname]</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ OWNER #foo</tt>
+<a name="PROTECT|DEPROTECT"><h2>PROTECT|DEPROTECT</h2></a>
+<p>
+These commands perform status mode changes on a channel.
+<p>
+If you perform an operation on another user, they will be
+notified that you did it.
+<p>
+If the last parameter is omitted the action is performed
+on the person requesting the command.
+<p>
+<strong>Syntax:</strong> <tt>PROTECT|DEPROTECT &lt;#channel&gt; [nickname]</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ PROTECT #foo</tt>
+<a name="QUIET"><h2>QUIET</h2></a>
+<p>
+The QUIET command allows you to mute a user or hostmask in
+a channel. Affected users will be notified that you did it.
+<p>
+<strong>Syntax:</strong> <tt>QUIET &lt;#channel&gt; &lt;nickname|hostmask&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ QUIET #chat AfterDeath</tt>
+<br><tt>/msg ChanServ QUIET #chat *!*@*.ipt.aol.com</tt>
+<a name="RECOVER"><h2>RECOVER</h2></a>
+<p>
+RECOVER allows you to regain control of your
+channel in the event of a takeover.
+<p>
+More precisely, everyone will be deopped,
+limit and key will be cleared, all bans
+matching you are removed, a ban exception
+matching you is added (in case of bans Atheme
+can't see), the channel is set invite-only
+and moderated and you are invited.
+<p>
+If you are on channel, you will be opped and
+no ban exception will be added.
+<p>
+<strong>Syntax:</strong> <tt>RECOVER &lt;#channel&gt;</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg ChanServ RECOVER #foo</tt>
+<a name="REGISTER"><h2>REGISTER</h2></a>
+<p>
+REGISTER allows you to register a channel
+so that you have better control. Registration
+allows you to maintain a channel access list
+and other functions that are normally
+provided by IRC bots.
+<p>
+<strong>Syntax:</strong> <tt>REGISTER &lt;#channel&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ REGISTER #atheme</tt>
+<a name="ROLE ADD"><h2>ROLE ADD</h2></a>
+<p>
+ROLE ADD will create a channel role with the given
+flags. Multiple flags should be separated by a space.
+<p>
+<strong>Syntax:</strong> <tt>ROLE &lt;#channel&gt; ADD &lt;role&gt; [flags]</tt><br>
+<p>
+Flags:
+<br><tt>+voice - Enables use of the voice/devoice commands.</tt>
+<br><tt>+autovoice - Enables automatic voice.</tt>
+<br><tt>+halfop - Enables use of the halfop/dehalfop commands.</tt>
+<br><tt>+autohalfop - Enables automatic halfop.</tt>
+<br><tt>+op - Enables use of the op/deop commands.</tt>
+<br><tt>+autoop - Enables automatic op.</tt>
+<br><tt>+protect - Enables use of the protect/deprotect commands.</tt>
+<br><tt>+owner - Enables use of the owner/deowner commands.</tt>
+<br><tt>+set - Enables use of the set command.</tt>
+<br><tt>+invite - Enables use of the invite and getkey commands.</tt>
+<br><tt>+remove - Enables use of the kick, kickban, ban and unban commands.</tt>
+<br><tt>+remove - Enables use of the ban and unban commands.</tt>
+<br><tt>+remove - Enables use of the unban command.</tt>
+<br><tt>+recover - Enables use of the recover and clear commands.</tt>
+<br><tt>+acl-change - Enables modification of channel access lists.</tt>
+<br><tt>+topic - Enables use of the topic and topicappend commands.</tt>
+<br><tt>+acl-view - Enables viewing of channel access lists.</tt>
+<br><tt>+successor - Marks the user as a successor.</tt>
+<br><tt>+founder - Grants full founder access.</tt>
+<br><tt>+banned - Enables automatic kickban.</tt>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ ROLE #atheme ADD helpers topic autovoice</tt>
+<a name="ROLE DEL"><h2>ROLE DEL</h2></a>
+<p>
+ROLE DEL will delete a channel-specific role.
+<p>
+<strong>Syntax:</strong> <tt>ROLE &lt;#channel&gt; DEL &lt;role&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ ROLE #atheme DEL helpers</tt>
+<a name="ROLE LIST"><h2>ROLE LIST</h2></a>
+<p>
+ROLE LIST lists all channel-specific and network-wide roles
+and the flags that each role has.
+<p>
+<strong>Syntax:</strong> <tt>ROLE &lt;#channel&gt; LIST</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ ROLE #baz LIST</tt>
+<a name="ROLE SET"><h2>ROLE SET</h2></a>
+<p>
+ROLE SET allows you to modify the flags of a role that
+already exists. All users in the given role will receive
+the effects of the changes. Multiple flags should be
+seperated by a space and have the modifier (+ or -) before
+each flag.
+<p>
+<strong>Syntax:</strong> <tt>ROLE &lt;#channel&gt; SET &lt;role&gt; &lt;flags&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ ROLE #atheme SET channel-ops +acl-change +set +recover</tt>
+<br><tt>/msg ChanServ ROLE #atheme SET helpers +invite</tt>
+<br><tt>/msg ChanServ ROLE #foo SET helpers -topic -invite</tt>
+<a name="SET EMAIL"><h2>SET EMAIL</h2></a>
+<p>
+SET EMAIL allows you to change or set the email
+address associated with a channel. This is shown
+to all users in INFO.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;#channel&gt; EMAIL [email]</tt><br>
+<p>
+Using the command in this way results in an email
+address being associated with the channel.
+<p>
+<strong>Example:</strong>
+<br><tt>/msg ChanServ SET #chat EMAIL some@email.address</tt>
+<p>
+<a name="SET ENTRYMSG"><h2>SET ENTRYMSG</h2></a>
+<p>
+SET ENTRYMSG allows you to change or set
+a message sent to all users joining the
+channel.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;#channel&gt; ENTRYMSG [message]</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg ChanServ SET #support ENTRYMSG Welcome to #support. Please do not paste more than 5 lines.</tt>
+<a name="SET FANTASY"><h2>SET FANTASY</h2></a>
+<p>
+SET FANTASY allows you to enable or disable ChanServ
+fantasy commands (!op, !deop, etc.) on your channel.
+<p>
+GUARD must be enabled as well for fantasy commands
+to work.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;#channel&gt; FANTASY ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg ChanServ SET #chatspike FANTASY ON</tt>
+<a name="SET FOUNDER"><h2>SET FOUNDER</h2></a>
+<p>
+SET FOUNDER allows you to set a new founder
+of the channel. The new founder has to
+execute the same command to confirm the
+transfer.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;#channel&gt; FOUNDER &lt;newnick&gt;</tt><br>
+<p>
+If the new founder has not yet confirmed the
+transfer, you can cancel it by specifying
+your own nick as the new founder.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;#channel&gt; FOUNDER &lt;yournick&gt;</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg ChanServ SET #foo FOUNDER bar</tt>
+<a name="SET GAMESERV"><h2>SET GAMESERV</h2></a>
+<p>
+SET GAMESERV allows gaming services to be
+used, sending to the channel, via
+/msg GameServ &lt;command&gt; &lt;channel&gt; &lt;parameters&gt;.
+<p>
+You can decide who may use GameServ:
+<br><tt>ALL   - allow all channel members</tt>
+<br><tt>VOICE - allow ops/voiced</tt>
+<br><tt>OP    - allow ops</tt>
+<br><tt>OFF   - allow noone</tt>
+<p>
+For OP and VOICE, both channel status and ChanServ
+flags apply.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;#channel&gt; GAMESERV ALL|VOICE|OP|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg ChanServ SET #foo GAMESERV VOICE</tt>
+<a name="SET GUARD"><h2>SET GUARD</h2></a>
+<p>
+SET GUARD allows you to have ChanServ join your channel.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;#channel&gt; GUARD ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg ChanServ SET #atheme GUARD ON</tt>
+<a name="SET KEEPTOPIC"><h2>SET KEEPTOPIC</h2></a>
+<p>
+SET KEEPTOPIC enables restoration of the old
+topic after the channel has become empty. In
+some cases, it may revert topic changes
+after netsplits or services outages, so it
+is not recommended to turn this on if your
+channel tends to never empty.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;#channel&gt; KEEPTOPIC ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg ChanServ SET #foo KEEPTOPIC ON</tt>
+<a name="SET LIMITFLAGS"><h2>SET LIMITFLAGS</h2></a>
+<p>
+SET LIMITFLAGS limits the power of the +f flag.
+<p>
+Users with +f that have neither +s nor +R
+may only set +b (akick), and users that do not
+have all of +s and +R may not set +s, +R and
++f.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;#channel&gt; LIMITFLAGS ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg ChanServ SET #foo LIMITFLAGS ON</tt>
+<a name="SET MLOCK"><h2>SET MLOCK</h2></a>
+<p>
+MLOCK (or "mode lock") allows you to enforce a set
+of modes on a channel.  This can prevent abuse in cases
+such as +kl. It can also make it harder to fight evil
+bots, be careful. Locked modes can be seen by anyone
+recreating the channel (this includes keys).
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;#channel&gt; MLOCK [modes]</tt><br>
+<p>
+Examples: (some may use modes your ircd does not support)
+<br><tt>/msg ChanServ SET #foo MLOCK +nt-lk</tt>
+<br><tt>/msg ChanServ SET #foo MLOCK +inst-kl</tt>
+<br><tt>/msg ChanServ SET #c MLOCK +ntk c</tt>
+<br><tt>/msg ChanServ SET #foo MLOCK +ntcjf-kl 2:30 #overflow</tt>
+<br><tt>/msg ChanServ SET #overflow MLOCK +mntF-kljf</tt>
+<br><tt>/msg ChanServ SET #foo1 MLOCK +ntlL 40 #foo2</tt>
+<a name="SET NOSYNC"><h2>SET NOSYNC</h2></a>
+<p>
+SET NOSYNC allows channel staff to disable
+automatic syncing of channel status when it
+is changed.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;#channel&gt; NOSYNC ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg ChanServ SET #foo NOSYNC ON</tt>
+<a name="SET PREFIX"><h2>SET PREFIX</h2></a>
+<p>
+PREFIX allows you to customize the channel fantasy trigger
+for your channel. This is particularly useful if you have
+channel bots that conflict with ChanServ's default fantasy
+prefix. Providing no prefix argument (or DEFAULT) resets
+the channel fantasy prefix to the network default prefix.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;#channel&gt; PREFIX [prefix]</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ SET #foo PREFIX</tt>
+<br><tt>/msg ChanServ SET #foo PREFIX '</tt>
+<br><tt>/msg ChanServ SET #c PREFIX %</tt>
+<br><tt>/msg ChanServ SET #c PREFIX default</tt>
+<a name="SET PRIVATE"><h2>SET PRIVATE</h2></a>
+<p>
+SET PRIVATE hides various information about
+the channel from other users.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;#channel&gt; PRIVATE ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg ChanServ SET #foo PRIVATE ON</tt>
+<a name="SET PROPERTY"><h2>SET PROPERTY</h2></a>
+<p>
+SET PROPERTY manipulates metadata
+associated with a channel.
+<p>
+To delete a metadata entry, specify
+the name and leave the value blank.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;#channel&gt; PROPERTY &lt;name&gt; [value]</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg ChanServ SET #atheme PROPERTY URL http://www.atheme.org/</tt>
+<br><tt>/msg ChanServ SET #meat PROPERTY VEGETABLES</tt>
+<a name="SET RESTRICTED"><h2>SET RESTRICTED</h2></a>
+<p>
+SET RESTRICTED designates a channel as restricted access.
+Users who are not on the access list of the channel,
+or who do not have the chan:joinstaffonly privilege
+will be kicked and banned from the channel upon join,
+removing any ban exceptions matching them first.
+If the channel is set +i, no ban will be set
+and invite exceptions will be removed.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;#channel&gt; RESTRICTED ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg ChanServ SET #snoop RESTRICTED ON</tt>
+<a name="SET SECURE"><h2>SET SECURE</h2></a>
+<p>
+SET SECURE prevents anyone that's not on the
+channel's access lists from gaining operator
+or halfop status on the channel.  This is
+useful if you're paranoid.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;#channel&gt; SECURE ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg ChanServ SET #foo SECURE ON</tt>
+<a name="SET TOPICLOCK"><h2>SET TOPICLOCK</h2></a>
+<p>
+SET TOPICLOCK causes ChanServ to revert
+topic changes by users without the +t flag.
+Topic changes during netsplits or services
+outages will always be reverted.
+<p>
+TOPICLOCK requires KEEPTOPIC and will
+automatically enable it; disabling KEEPTOPIC
+will disable TOPICLOCK also.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;#channel&gt; TOPICLOCK ON|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg ChanServ SET #foo TOPICLOCK ON</tt>
+<a name="SET URL"><h2>SET URL</h2></a>
+<p>
+SET URL allows you to change or set the URL
+associated with a channel. This is shown
+to all users joining the channel.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;#channel&gt; URL [url]</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg ChanServ SET #chat URL http://slashdot.org</tt>
+<a name="SET VERBOSE"><h2>SET VERBOSE</h2></a>
+<p>
+SET VERBOSE ON sends a notice to the channel when someone
+makes changes to the access lists.
+<p>
+SET VERBOSE OPS sends a notice to the channel operators when
+someone makes changes to the access lists.
+<p>
+Fantasy commands are always executed as if SET VERBOSE ON is
+in effect.
+<p>
+<strong>Syntax:</strong> <tt>SET &lt;#channel&gt; VERBOSE ON|OPS|OFF</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg ChanServ SET #foo VERBOSE ON</tt>
+<a name="STATUS"><h2>STATUS</h2></a>
+<p>
+STATUS returns information about your current
+state. It will show information about your
+nickname, IRC operator, and SRA status.
+<p>
+If the a channel parameter is specified, your
+access to the given channel is returned.
+<p>
+<strong>Syntax:</strong> <tt>STATUS [#channel]</tt><br>
+<p>
+<strong>Example:</strong>
+<br><tt>/msg ChanServ STATUS</tt>
+<br><tt>/msg ChanServ STATUS #foo</tt>
+<a name="SYNC"><h2>SYNC</h2></a>
+<p>
+The SYNC command will force all channel statuses to flags, giving and taking
+away ops, voice and so on where necessary. You must have the channel flag +R to
+run this command.
+<p>
+<strong>Syntax:</strong> <tt>SYNC &lt;#channel&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ SYNC #bar</tt>
+<a name="TAXONOMY"><h2>TAXONOMY</h2></a>
+<p>
+The taxonomy command lists metadata information associated
+with registered channels.
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ TAXONOMY #atheme</tt>
+<a name="TEMPLATE"><h2>TEMPLATE</h2></a>
+<p>
+The TEMPLATE command allows definition of sets of flags,
+simplifying the use of the FLAGS command.
+<p>
+Without arguments, network wide templates are shown.
+These include at least SOP/AOP/HOP/VOP.
+These include at least SOP/AOP/VOP.
+<p>
+<strong>Syntax:</strong> <tt>TEMPLATE</tt><br>
+<p>
+When given only the channel argument, a listing of
+templates for the channel will be displayed.
+<p>
+<strong>Syntax:</strong> <tt>TEMPLATE &lt;#channel&gt;</tt><br>
+<p>
+Otherwise, a template is modified. A modification may be
+specified by a template name (copies the template) or a
+flags change (starts with + or -, optionally preceded by
+an !). Templates cannot be the empty set (making a
+template empty deletes it).
+<p>
+If the ! form is used, all access entries which exactly
+match the template are changed accordingly. This is
+not supported if the template includes or included
+founder access (+F).
+<p>
+There is a limit on the length of all templates on a
+channel.
+<p>
+If you are not a founder, similar restrictions apply
+as in FLAGS.
+<p>
+<strong>Syntax:</strong> <tt>TEMPLATE &lt;#channel&gt; [template oldtemplate]</tt><br>
+<strong>Syntax:</strong> <tt>TEMPLATE &lt;#channel&gt; [template flag_changes]</tt><br>
+<strong>Syntax:</strong> <tt>TEMPLATE &lt;#channel&gt; [template !flag_changes]</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ TEMPLATE #foo</tt>
+<br><tt>/msg ChanServ TEMPLATE #foo user VOP</tt>
+<br><tt>/msg ChanServ TEMPLATE #foo user !+A</tt>
+<br><tt>/msg ChanServ TEMPLATE #foo co-founder +*-OH</tt>
+<br><tt>/msg ChanServ TEMPLATE #foo op -*+vVhoti</tt>
+<br><tt>/msg ChanServ TEMPLATE #foo co-founder +*-O</tt>
+<br><tt>/msg ChanServ TEMPLATE #foo op -*+vVoti</tt>
+<br><tt>/msg ChanServ TEMPLATE #foo obsoletetemplate -*</tt>
+<a name="TOPIC"><h2>TOPIC</h2></a>
+<p>
+The TOPIC command allows for the changing of a topic on a channel.
+<p>
+<strong>Syntax:</strong> <tt>TOPIC &lt;#channel&gt; &lt;topic&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ TOPIC #foo bar</tt>
+<a name="TOPICAPPEND"><h2>TOPICAPPEND</h2></a>
+<p>
+The TOPICAPPEND command allows for the addition to a topic on a channel.
+<p>
+<strong>Syntax:</strong> <tt>TOPICAPPEND &lt;#channel&gt; &lt;topic&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ TOPICAPPEND #foo bar</tt>
+<a name="TOPICPREPEND"><h2>TOPICPREPEND</h2></a>
+<p>
+The TOPICPREPEND command allows for the addition to a topic on a channel.
+<p>
+<strong>Syntax:</strong> <tt>TOPICPREPEND &lt;#channel&gt; &lt;topic&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ TOPICPREPEND #foo bar</tt>
+<a name="UNBAN"><h2>UNBAN</h2></a>
+<p>
+The UNBAN command allows you to unban a user or hostmask
+from a channel. If no nickname or hostmask is specified,
+you are unbanned.
+<p>
+<strong>Syntax:</strong> <tt>UNBAN &lt;#channel&gt; [nickname|hostmask]</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ UNBAN #chat pfish</tt>
+<br><tt>/msg ChanServ UNBAN #chat *!*@*.ucdavis.edu</tt>
+<a name="UNBAN"><h2>UNBAN</h2></a>
+<p>
+The UNBAN command allows you to remove all bans matching
+you from a channel.
+<p>
+<strong>Syntax:</strong> <tt>UNBAN &lt;#channel&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ UNBAN #chat</tt>
+<a name="UNQUIET"><h2>UNQUIET</h2></a>
+<p>
+The UNQUIET command allows you to unmute a user or hostmask
+in a channel. If no nickname or hostmask is specified,
+you are unquieted.
+<p>
+Affected users will be notified that you did it.
+<p>
+<strong>Syntax:</strong> <tt>UNQUIET &lt;#channel&gt; [nickname|hostmask]</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ UNQUIET #chat Diablo-D3</tt>
+<br><tt>/msg ChanServ UNQUIET #chat *!*@*.trilug.org</tt>
+<a name="WHY"><h2>WHY</h2></a>
+<p>
+The WHY command shows the access entries an online
+user matches.
+<p>
+<strong>Syntax:</strong> <tt>WHY &lt;#channel&gt; [nickname]</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ WHY #atheme jilles^</tt>
+<a name="xOP"><h2>xOP</h2></a>
+<p>
+The xOP commands allow you to maintain channel
+access lists. Channel access lists can contain
+registered accounts or hostmasks (nick!user@host).
+<p>
+The exact meanings of the access levels may differ
+per network, use /msg ChanServ TEMPLATE to check. As
+a hint, VOP stands for VOice People, HOP stands for
+HalfOP, AOP stands for AutoOP, SOP stands for
+SuperOP.
+a hint, VOP stands for VOice People, AOP stands
+for AutoOP, SOP stands for SuperOP.
+<p>
+Not all channel access entries can be edited
+with these commands, see the FLAGS and FORCEXOP
+help entries for details. Note that use of
+FORCEXOP can destroy a lot of information.
+The TEMPLATE system can provide most of the
+ease of use of these commands without the
+restrictions.
+<p>
+The privileges required to execute these commands are
+the same as those required for the corresponding
+FLAGS commands.
+<p>
+<strong>Syntax:</strong> <tt>VOP|HOP|AOP|SOP &lt;#channel&gt; ADD|DEL|LIST &lt;nickname|hostmask&gt;</tt><br>
+<strong>Syntax:</strong> <tt>VOP|AOP|SOP &lt;#channel&gt; ADD|DEL|LIST &lt;nickname|hostmask&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg ChanServ VOP #foo ADD bar</tt>
+<br><tt>/msg ChanServ VOP #foo ADD foo!*@bar.com</tt>
+<br><tt>/msg ChanServ AOP #foo DEL bar</tt>
+<br><tt>/msg ChanServ SOP #foo LIST</tt>
+</body></html>

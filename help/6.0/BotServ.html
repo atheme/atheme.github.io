@@ -1,0 +1,115 @@
+<html><head><title>Atheme help - BotServ</title>
+<meta name="generator" content="atheme html_helpfiles.sh">
+</head><body>
+</head><body>
+<h1>BotServ</h1>
+<a name="ACT"><h2>ACT</h2></a>
+<p>
+Makes the bot do the equivalent of a "/me" command
+on the given channel using the given text.
+<p>
+<strong>Syntax:</strong> <tt>ACT &lt;chan&gt; &lt;text&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg BotServ ACT #help yawns!</tt>
+<a name="ASSIGN"><h2>ASSIGN</h2></a>
+<p>
+Assigns a bot pointed out by nick to the channel chan. You
+can then configure the bot for the channel so it fits
+your needs.
+<p>
+<strong>Syntax:</strong> <tt>ASSIGN &lt;chan&gt; &lt;nick&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg BotServ ASSIGN #help Security</tt>
+<a name="BOT"><h2>BOT</h2></a>
+<p>
+Allows opers to create, modify, and delete bots
+that users will be able to use on their own channels.
+<p>
+BOT ADD adds a bot with the given nickname, username,
+hostname and realname. Since no integrity checks are done
+for these settings, be careful.
+<p>
+BOT CHANGE allows you to change nickname, username, hostname
+or realname of a bot without actually deleting it (and all
+the data associated with it).
+<p>
+BOT DEL removes the given bot from the bot list.
+<p>
+Note: you cannot create a bot that has a nick that is
+currently registered. If an unregistered user is currently
+using the nick, they will be killed.
+<p>
+<strong>Syntax:</strong> <tt>BOT ADD &lt;nick&gt; &lt;user&gt; &lt;host&gt; &lt;real&gt;</tt><br>
+<strong>Syntax:</strong> <tt>BOT CHANGE &lt;oldnick&gt; &lt;newnick&gt; [&lt;user&gt; [&lt;host&gt; [&lt;real&gt;]]]</tt><br>
+<strong>Syntax:</strong> <tt>BOT DEL &lt;nick&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg BotServ BOT ADD Security Security security.example.net Security</tt>
+<br><tt>/msg BotServ BOT CHANGE Security NetBot NetBot Services.Example.Net MyNet</tt>
+<br><tt>/msg BotServ BOT DEL Security</tt>
+<a name="BOTLIST"><h2>BOTLIST</h2></a>
+<p>
+Lists all available bots on this network.
+<p>
+<strong>Syntax:</strong> <tt>BOTLIST</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg BotServ BOTLIST</tt>
+<a name="INFO"><h2>INFO</h2></a>
+<p>
+INFO allows you to see BotServ information about a channel or a bot.
+<p>
+<strong>Syntax:</strong> <tt>INFO &lt;#channel|botnick&gt;</tt><br>
+<a name="SAY"><h2>SAY</h2></a>
+<p>
+Makes the bot say the given text on the given channel.
+<p>
+<strong>Syntax:</strong> <tt>SAY &lt;chan&gt; &lt;text&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg BotServ SAY #help Welcome to #help!</tt>
+<a name="SET FANTASY"><h2>SET FANTASY</h2></a>
+<p>
+Enables or disables fantasy mode on a channel.
+When it is enabled, users will be able to use all
+chanserv commands like !op, !deop, !voice, !devoice, 
+!kick, !kb, !unban, !akick, !info on a channel.
+ 
+<strong>Syntax:</strong> <tt>SET &lt;#channel&gt; FANTASY {ON|OFF}</tt><br>
+  
+<strong>Examples:</strong>
+<br><tt>/msg BotServ SET #help FANTASY ON</tt>
+<a name="SET NOBOT"><h2>SET NOBOT</h2></a>
+<p>
+This option makes a channel be unassignable. If a bot
+is already assigned to the channel, it is unassigned
+automatically when you enable the option.
+ 
+<strong>Syntax:</strong> <tt>SET &lt;#channel&gt; NOBOT {ON|OFF}</tt><br>
+  
+<strong>Examples:</strong>
+<br><tt>/msg BotServ SET #help NOBOT ON</tt>
+<a name="SET PRIVATE"><h2>SET PRIVATE</h2></a>
+<p>
+This option prevents a bot from being assigned to a
+channel by users that do not have chan:admin privilege.
+ 
+<strong>Syntax:</strong> <tt>SET &lt;botnick&gt; PRIVATE {ON|OFF}</tt><br>
+  
+<strong>Examples:</strong>
+<br><tt>/msg BotServ SET Security PRIVATE ON</tt>
+<a name="UNASSIGN"><h2>UNASSIGN</h2></a>
+<p>
+Unassigns a bot from a channel. When you use this command,
+the bot won't join the channel anymore. However, bot
+configuration for the channel is kept, so you will always
+be able to reassign a bot later without having to reconfigure
+it entirely.
+<p>
+<strong>Syntax:</strong> <tt>UNASSIGN &lt;chan&gt;</tt><br>
+<p>
+<strong>Examples:</strong>
+<br><tt>/msg BotServ UNASSIGN #help</tt>
+</body></html>
