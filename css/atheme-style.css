@@ -2,7 +2,7 @@ body, .jumbotron, .well {
 	background-color: #F2F2F2;
 }
 
-.iris, .iris:hover {
+.github, .github:hover {
 	color: #43ac6a;
 	text-decoration: none;
 }
