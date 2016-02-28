@@ -1,32 +1,92 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Atheme Development Group</title>
-        <meta charset="utf-8">
-    </head>
-    <body>
-        <h1>Atheme IRC Services</h1>
-        <p>The Atheme IRC Platform is a IRCv3.1-compliant set of middleware (also known as Services) for IRC networks. <strong>(As of late February 2016) Development is starting back up!</strong></p>
-        <p>It is typically combined with an IRCv3.1 compliant IRC daemon. Find out more about IRCv3 at <a href="http://ircv3.net/">ircv3.net</a>.</p>
-        <p>Please pardon us while we update <a href="http://atheme.net" target="_blank"><strong>atheme.net</a></strong> and rebuild the Atheme Development Group website.</p>
-        <h2>Git</h2>
-        <ul>
-            <li><a href="http://github.com/atheme/atheme/"><strong>git clone https://github.com/atheme/atheme.git</strong></a></li>
-        </ul>
-        <h2>Sources</h2>
-        <ul>
-            <li><a href="http://atheme.net/downloads/atheme-services-7.2.6.tar.bz2">Atheme 7.2.6</a></li>
-            <li><a href="http://atheme.net/downloads/atheme-services-7.1.0.tar.bz2">Atheme 7.1.0</a></li>
-            <li><a href="http://atheme.net/downloads/atheme-services-7.0.7.tar.bz2">Atheme 7.0.7</a></li>
-        </ul>
-        <p>Older versions all the way back to version 0.1 in 2005, are available in the <a href="http://atheme.net/downloads/">downloads directory</a>.</p>
-        <h3 id="services-forks">Known Forks</h3>
-        <p>At the present time, we know of the following projects that have officially declared themselves as forks. Atheme does not warrant the suitability of any forks, however individual maintainers may have their own opinions.</p>
-        <ul>
-            <li><a href="https://bitbucket.org/chatlounge/chatservices">ChatServices</a></li>
-            <li><a href="https://github.com/shalture/shalture">Shaltúre</a></li>
-            <li><a href="https://github.com/zohlai/zohlai">Zohlai</a></li>
-            <li><a href="http://www.xtheme.org/Xtheme/">Xtheme</a></li>
-        </ul>
-    </body>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<title>Atheme Development Group</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Atheme IRC Services">
+<meta name="author" content="Alyx Wolcott">
+<meta name="author" content="Andrew Northall">
+<meta name="author" content="Austin Ellis">
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/atheme-style.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-static-top" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="index.html">Atheme Development Group</a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav navbar-right">
+<li><a href="index.html"><span class="fa fw-fw fa-external-link-square"></span> atheme.github.io</a></li>
+</ul>
+<ul class="nav navbar-nav">
+<li class="active"><a href="index.html"><span class="fa fa-fw fa-home"></span> Home</a></li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-fw fa-group"></span> Components <b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li><a href="atheme.html"><span class="fa fa-fw fa-group"></span> Atheme Services</a></li>
+<li><a href="swi.html"><span class="fa fa-fw fa-globe"></span> SWI</a></li>
+</ul>
+</li>
+<li><a href="faq.html"><span class="fa fw-fw fa-question"></span> FAQ</a></li>
+<li><a href="https://github.com/atheme"><span class="fa fw-fw fa-github"></span> GitHub</a></li>
+<li><a href="contact.html"><span class="fa fw-fw fa-envelope"></span> Contact</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="jumbotron">
+<h1>The Atheme IRC Platform</h1>
+<h1>Powered By:</h1>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-4 marketing-text">
+<h1><a href="atheme.html" class="atheme"><span class="fa fa-fw fa-group"></span> Atheme</a></h1>
+<p>Atheme is a feature-packed, extremely customisable IRC services daemon that is secure, stable and scalable.</p>
+<br/>
+<a class="btn btn-lg btn-primary" href="downloads/atheme-services-7.1.0.tar.bz2">Download</a>
+<a class="btn btn-lg btn-default" href="atheme.html">More Info</a>
+</div>
+<div class="col-md-4 marketing-text">
+<h1><a href="swi.html" class="web"><span class="fa fa-fw fa-globe"></span> SWI</a></h1>
+<p>SWI is a web interface for services which makes the core features available over the web.</p>
+<br/><br/>
+<a class="btn btn-lg btn-warning" href="downloads/swi-3.2.2.tar.bz2">Download</a>
+<a class="btn btn-lg btn-default" href="swi.html">More Info</a>
+</div>
+<div class="col-md-4 marketing-text">
+<h1><a href="https://github.com/atheme/" class="github"><span class="fa fa-fw fa-globe"></span> GitHub</a></h1>
+<p>View more of the Atheme Development Groups' projects on GitHub.</p>
+<br/><br/>
+<a class="btn btn-lg btn-success" href="https://github.com/atheme/">GitHub</a>
+</div>
+</div>
+<hr>
+<footer>
+<p>&copy; <a href="http://atheme.github.io/" style="color:black;">atheme.github.io</a> 2012-2016</p>
+</footer>
+</div>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
 </html>
+
